@@ -10,7 +10,7 @@ public class GastoDAO {
     private static Gasto[] gastos = new Gasto[1000000];
     public static Gasto[] getInstance() {
         if (gastos[0] == null) {
-            String diretorioArquivo = "C:\\Users\\Mateu\\Downloads\\deputies_dataset_tratado.csv";
+            String diretorioArquivo = "/ice/Downloads/deputies_dataset_tratado.csv";
             BufferedReader leitor = null;
             String delimitador = ";";
             int contador = 0;
