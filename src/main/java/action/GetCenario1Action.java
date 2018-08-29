@@ -20,7 +20,10 @@ public class GetCenario1Action implements Action {
             RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/cenario1.jsp");
             dispacher.forward(request, response);
         } else if (identificador.equals(1)) {
-            EntradaDAO.getInstance();
+            Integer [] quantidadeLeitura = EntradaDAO.getInstance();
+            for (int i = 1; i < quantidadeLeitura.length; i++) {
+                
+            }
         } else if (identificador.equals(2)) {
 
         } else {
