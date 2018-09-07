@@ -19,12 +19,21 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Cenários
+                        Item 1
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="cenario1.html?id=0">Cenário 1</a>
-                        <a class="dropdown-item" href="#">Cenário 2</a>
-                        <a class="dropdown-item" href="#">Cenário 3</a>
+                        <a class="dropdown-item" href="cenario2.html?id=0">Cenário 2</a>
+                        <a class="dropdown-item" href="cenario3.html?id=0">Cenário 3</a>
+                        <a class="dropdown-item" href="cenario4.html?id=0">Cenário 4</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Item 2
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="cenario5.html?id=0">Cenário 1</a>
                     </div>
                 </li>
             </ul>
