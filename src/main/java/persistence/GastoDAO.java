@@ -16,7 +16,7 @@ public class GastoDAO {
         
         if (gastos == null) {
             gastos = new ArrayList<>();
-            String diretorioArquivo = "/ice/Downloads/deputies_dataset_tratado.csv";
+            String diretorioArquivo = "C:\\Users\\Mateu\\Downloads\\deputies_dataset_tratado.csv";
             BufferedReader leitor = null;
             String delimitador = ";";
             int contador = 0;

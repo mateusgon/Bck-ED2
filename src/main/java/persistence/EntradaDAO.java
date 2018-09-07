@@ -1,12 +1,9 @@
 package persistence;
 
-import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
-import model.Gasto;
 
 public class EntradaDAO {
 
@@ -14,7 +11,7 @@ public class EntradaDAO {
 
     public static Integer[] getInstance() throws FileNotFoundException {
         if (leituras == null) {
-            Scanner input = new Scanner(new FileReader("/ice/Downloads/entrada.txt"));
+            Scanner input = new Scanner(new FileReader("C:\\Users\\Mateu\\Documents\\NetBeansProjects\\DCC012-Trabalho01\\entrada.txt"));
             try {
                 Integer valor;
                 int contador = 0;

@@ -4,7 +4,7 @@ import model.Gasto;
 
 public class QuickSort {
 
-    private void quickSort(Gasto vetor[], int esq, int dir) {
+    private void quickSortObjeto(Gasto vetor[], int esq, int dir) {
         int i, j;
         Gasto pivo, aux;
         i = esq;
@@ -27,22 +27,52 @@ public class QuickSort {
             }
         }
         if (j > esq) {
-            quickSort(vetor, esq, j+1);
+            quickSortObjeto(vetor, esq, j+1);
         }
         if (i < dir) {
-            quickSort(vetor, i, dir);
+            quickSortObjeto(vetor, i, dir);
         }
     }
 
-    public long ordena(Gasto vetor[]) {
-        Gasto vet[] = new Gasto[vetor.length];
-        for (int i = 0; i < vetor.length; i++)
-        {
-            Gasto v = vetor[i];
-            vet[i] = v;
-        }
+    public long ordenaObjeto(Gasto vetor[]) {
         long tempoInicial = System.currentTimeMillis();
-        quickSort(vet, 0, vet.length);
+        quickSortObjeto(vetor, 0, vetor.length);
+        return System.currentTimeMillis() - tempoInicial;
+    }
+    
+    private void quickSortInteiro(Integer vetor[], int esq, int dir) {
+        int i, j;
+        Integer pivo, aux;
+        i = esq;
+        j = dir - 1;
+        pivo = vetor[(esq + dir) / 2];
+
+        while (i <= j) {
+            while (vetor[i] < pivo && i < dir) {
+                i++;
+            }        
+            while (vetor[j] > pivo && j > esq) {
+                j--;    
+            }
+            if (i <= j) {
+                aux = vetor[i];
+                vetor[i] = vetor[j];
+                vetor[j] = aux;
+                i++;
+                j--;
+            }
+        }
+        if (j > esq) {
+            quickSortInteiro(vetor, esq, j+1);
+        }
+        if (i < dir) {
+            quickSortInteiro(vetor, i, dir);
+        }
+    }
+
+    public long ordenaInteiro(Integer vetor[]) {
+        long tempoInicial = System.currentTimeMillis();
+        quickSortInteiro(vetor, 0, vetor.length);
         return System.currentTimeMillis() - tempoInicial;
     }
 }

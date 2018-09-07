@@ -16,7 +16,7 @@
         <div class="col-sm-6" >
             <div class="card">
                 <div class="card-body">
-                    <a href="#">
+                    <a href="cenario2.html?id=0">
                         <h5 class="card-title">Cenário 2</h5>
                         <i class="material-icons"  style="font-size:100px;">folder</i> 
                     </a>
