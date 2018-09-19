@@ -32,7 +32,7 @@ public class GetCenario2Action implements Action{
                         analise[k] = GastoDAO.getInstance().get(k).getReceipt_value();
                     }
                     QuickSort quick = new QuickSort();
-                    resultadoLeitura[contadorLeitura] = quick.ordenaInteiro(analise);
+                   // resultadoLeitura[contadorLeitura] = quick.ordenaInteiro(analise);
                     contadorLeitura++;
                 }
             }

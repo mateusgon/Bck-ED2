@@ -3,11 +3,14 @@ package action;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Gasto;
+import model.Resultado;
 import ordenacao.QuickSort;
 import persistence.EntradaDAO;
 import persistence.GastoDAO;
@@ -21,9 +24,9 @@ public class GetCenario1Action implements Action {
             RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/cenario1.jsp");
             dispacher.forward(request, response);
         } else if (identificador.equals(1)) {
+            Integer contador=0;
             Integer [] quantidadeLeitura = EntradaDAO.getInstance();
-            Long [] resultadoLeitura = new Long[quantidadeLeitura[0]*5];
-            Integer contadorLeitura = 0;
+            Resultado [] resultados = new Resultado[30];
             for (int i = 1; i < quantidadeLeitura.length; i++) {
                 for (int j = 0; j < 5; j++)
                 {
@@ -34,16 +37,18 @@ public class GetCenario1Action implements Action {
                         analise[k] = GastoDAO.getInstance().get(k);
                     }
                     QuickSort quick = new QuickSort();
-                    resultadoLeitura[contadorLeitura] = quick.ordenaObjeto(analise);
-                    contadorLeitura++;
+                    Resultado resultado = new Resultado();
+                    quick.ordenaObjeto(analise, resultado);
+                    resultados[contador] = resultado;
+                    contador++;
                 }
             }
-            request.setAttribute("resultadoLeitura", resultadoLeitura);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/objetoCenario1.jsp");
+            request.setAttribute("resultadoLeitura", resultados);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/ResultadoCenario1.jsp");
             dispatcher.forward(request, response);
         } else if (identificador.equals(2)) {
             Integer [] quantidadeLeitura = EntradaDAO.getInstance();
-            Long [] resultadoLeitura = new Long[quantidadeLeitura[0]*5];
+            Resultado [] resultados = new Resultado[30];
             Integer contadorLeitura = 0;
             for (int i = 1; i < quantidadeLeitura.length; i++) {
                 for (int j = 0; j < 5; j++)
@@ -55,12 +60,13 @@ public class GetCenario1Action implements Action {
                         analise[k] = GastoDAO.getInstance().get(k).getReceipt_value();
                     }
                     QuickSort quick = new QuickSort();
-                    resultadoLeitura[contadorLeitura] = quick.ordenaInteiro(analise);
+                    Resultado resultado = new Resultado();
+                    quick.ordenaInteiro(analise, resultado);
                     contadorLeitura++;
                 }
             }
-            request.setAttribute("resultadoLeitura", resultadoLeitura);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/objetoCenario1.jsp");
+            request.setAttribute("resultadoLeitura", resultados);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/ResultadoCenario1.jsp");
             dispatcher.forward(request, response);
         } else {
 

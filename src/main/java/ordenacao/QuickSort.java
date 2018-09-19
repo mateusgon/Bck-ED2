@@ -1,78 +1,107 @@
 package ordenacao;
 
 import model.Gasto;
+import model.Resultado;
 
 public class QuickSort {
 
-    private void quickSortObjeto(Gasto vetor[], int esq, int dir) {
-        int i, j;
-        Gasto pivo, aux;
-        i = esq;
-        j = dir - 1;
-        pivo = vetor[(esq + dir) / 2];
+    private void quickSortObjeto(Gasto vetor[], int esquerda, int direita, Resultado resultado) {
+        Gasto pivo;
+        pivo = vetor[(esquerda + direita) / 2];
+        int esq = esquerda;
+        int dir = direita - 1;
+        while (esq <= dir) {
+            Boolean auxiliar = true;
+            Boolean auxiliar2 = true;
+            while (auxiliar) {
+                if (vetor[esq].getReceipt_value() < pivo.getReceipt_value() && esq < direita) {
+                    resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
+                    esq++;
+                } else {
+                    resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
+                    auxiliar = false;
+                }
+            }
+            while (auxiliar2) {
+                if (vetor[dir].getReceipt_value() > pivo.getReceipt_value() && dir > esquerda) {
+                    resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
+                    dir--;
+                } else {
+                    resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
+                    auxiliar2 = false;
+                }
+            }
+            if (esq <= dir) {
+                resultado.setNumTrocas(resultado.getNumTrocas() + 3);
+                Gasto aux = vetor[esq];
+                vetor[esq] = vetor[dir];
+                vetor[dir] = aux;
+                esq++;
+                dir--;
+            }
+        }
 
-        while (i <= j) {
-            while (vetor[i].getReceipt_value() < pivo.getReceipt_value() && i < dir) {
-                i++;
-            }        
-            while (vetor[j].getReceipt_value() > pivo.getReceipt_value() && j > esq) {
-                j--;    
-            }
-            if (i <= j) {
-                aux = vetor[i];
-                vetor[i] = vetor[j];
-                vetor[j] = aux;
-                i++;
-                j--;
-            }
+        if (esq < direita) {
+            quickSortObjeto(vetor, esq, direita, resultado);
         }
-        if (j > esq) {
-            quickSortObjeto(vetor, esq, j+1);
-        }
-        if (i < dir) {
-            quickSortObjeto(vetor, i, dir);
+        if (dir > esquerda) {
+            quickSortObjeto(vetor, esquerda, dir + 1, resultado);
         }
     }
 
-    public long ordenaObjeto(Gasto vetor[]) {
+    public void ordenaObjeto(Gasto vetor[], Resultado resultado) {
         long tempoInicial = System.currentTimeMillis();
-        quickSortObjeto(vetor, 0, vetor.length);
-        return System.currentTimeMillis() - tempoInicial;
-    }
-    
-    private void quickSortInteiro(Integer vetor[], int esq, int dir) {
-        int i, j;
-        Integer pivo, aux;
-        i = esq;
-        j = dir - 1;
-        pivo = vetor[(esq + dir) / 2];
-
-        while (i <= j) {
-            while (vetor[i] < pivo && i < dir) {
-                i++;
-            }        
-            while (vetor[j] > pivo && j > esq) {
-                j--;    
-            }
-            if (i <= j) {
-                aux = vetor[i];
-                vetor[i] = vetor[j];
-                vetor[j] = aux;
-                i++;
-                j--;
-            }
-        }
-        if (j > esq) {
-            quickSortInteiro(vetor, esq, j+1);
-        }
-        if (i < dir) {
-            quickSortInteiro(vetor, i, dir);
-        }
+        quickSortObjeto(vetor, 0, vetor.length, resultado);
+        resultado.setTempoGasto(System.currentTimeMillis() - tempoInicial);
     }
 
-    public long ordenaInteiro(Integer vetor[]) {
+    private void quickSortInteiro(Integer vetor[], int esquerda, int direita, Resultado resultado) 
+    {
+        Integer pivo;
+        pivo = vetor[(esquerda + direita) / 2];
+        int esq = esquerda;
+        int dir = direita - 1;
+        while (esq <= dir) {
+            Boolean auxiliar = true;
+            Boolean auxiliar2 = true;
+            while (auxiliar) {
+                if (vetor[esq] < pivo && esq < direita) {
+                    resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
+                    esq++;
+                } else {
+                    resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
+                    auxiliar = false;
+                }
+            }
+            while (auxiliar2) {
+                if (vetor[dir] > pivo && dir > esquerda) {
+                    resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
+                    dir--;
+                } else {
+                    resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
+                    auxiliar2 = false;
+                }
+            }
+            if (esq <= dir) {
+                resultado.setNumTrocas(resultado.getNumTrocas() + 3);
+                Integer aux = vetor[esq];
+                vetor[esq] = vetor[dir];
+                vetor[dir] = aux;
+                esq++;
+                dir--;
+            }
+        }
+        if (esq < direita) {
+            quickSortInteiro(vetor, esq, direita, resultado);
+        }
+        if (dir > esquerda) {
+            quickSortInteiro(vetor, esquerda, dir + 1, resultado);
+        }
+    }
+
+    public void ordenaInteiro(Integer vetor[], Resultado resultado) {
         long tempoInicial = System.currentTimeMillis();
-        quickSortInteiro(vetor, 0, vetor.length);
-        return System.currentTimeMillis() - tempoInicial;
+        quickSortInteiro(vetor, 0, vetor.length, resultado);
+        resultado.setTempoGasto(System.currentTimeMillis() - tempoInicial);
     }
 }
