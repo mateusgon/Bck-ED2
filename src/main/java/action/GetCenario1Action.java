@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.Gasto;
 import model.Resultado;
 import ordenacao.QuickSort;
-import persistence.EntradaDAO;
+import persistence.ArquivoDAO;
 import persistence.GastoDAO;
 
 public class GetCenario1Action implements Action {
@@ -25,7 +25,7 @@ public class GetCenario1Action implements Action {
             dispacher.forward(request, response);
         } else if (identificador.equals(1)) {
             Integer contador=0;
-            Integer [] quantidadeLeitura = EntradaDAO.getInstance();
+            Integer [] quantidadeLeitura = ArquivoDAO.getInstance();
             Resultado [] resultados = new Resultado[30];
             for (int i = 1; i < quantidadeLeitura.length; i++) {
                 for (int j = 0; j < 5; j++)
@@ -43,11 +43,12 @@ public class GetCenario1Action implements Action {
                     contador++;
                 }
             }
+            ArquivoDAO.escrever("Resultado Objeto", resultados);
             request.setAttribute("resultadoLeitura", resultados);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/ResultadoCenario1.jsp");
             dispatcher.forward(request, response);
         } else if (identificador.equals(2)) {
-            Integer [] quantidadeLeitura = EntradaDAO.getInstance();
+            Integer [] quantidadeLeitura = ArquivoDAO.getInstance();
             Resultado [] resultados = new Resultado[30];
             Integer contadorLeitura = 0;
             for (int i = 1; i < quantidadeLeitura.length; i++) {
@@ -62,9 +63,11 @@ public class GetCenario1Action implements Action {
                     QuickSort quick = new QuickSort();
                     Resultado resultado = new Resultado();
                     quick.ordenaInteiro(analise, resultado);
+                    resultados[contadorLeitura] = resultado;
                     contadorLeitura++;
                 }
             }
+            ArquivoDAO.escrever("Resultado Inteiro", resultados);
             request.setAttribute("resultadoLeitura", resultados);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/ResultadoCenario1.jsp");
             dispatcher.forward(request, response);

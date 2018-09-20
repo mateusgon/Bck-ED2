@@ -6,7 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import ordenacao.QuickSort;
-import persistence.EntradaDAO;
+import persistence.ArquivoDAO;
 import persistence.GastoDAO;
 
 public class GetCenario3Action implements Action{
