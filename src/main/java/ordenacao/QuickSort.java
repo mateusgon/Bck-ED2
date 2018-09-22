@@ -12,7 +12,7 @@ public class QuickSort {
         pivo = vetor[(esquerda + direita) / 2];
         Integer esq = esquerda;
         Integer dir = direita - 1;
-        while (esq <= dir) {
+        do {
             Boolean auxiliar = true;
             Boolean auxiliar2 = true;
             while (auxiliar) {
@@ -41,7 +41,7 @@ public class QuickSort {
                 esq++;
                 dir--;
             }
-        }
+        } while (esq <= dir);
         if (esq < direita) {
             quickSortObjeto(vetor, esq, direita, resultado);
         }
@@ -62,7 +62,7 @@ public class QuickSort {
         pivo = vetor[(esquerda + direita) / 2];
         Integer esq = esquerda;
         Integer dir = direita - 1;
-        while (esq <= dir) {
+        do {
             Boolean auxiliar = true;
             Boolean auxiliar2 = true;
             while (auxiliar) {
@@ -91,7 +91,7 @@ public class QuickSort {
                 esq++;
                 dir--;
             }
-        }
+        } while (esq <= dir);
         if (esq < direita) {
             quickSortInteiro(vetor, esq, direita, resultado);
         }
@@ -118,7 +118,7 @@ public class QuickSort {
         }
         auxOrdenaInteiroMediana(indicesAleatorios);
         pivo = indicesAleatorios[numParaMediana / 2];
-        while (esq <= dir) {
+        do {
             Boolean auxiliar = true;
             Boolean auxiliar2 = true;
             while (auxiliar) {
@@ -148,6 +148,7 @@ public class QuickSort {
                 dir--;
             }
         }
+        while (esq <= dir);
         if (esq < direita) {
             quickSortInteiroMediana(vetor, esq, direita, resultado, numParaMediana);
         }
@@ -171,7 +172,7 @@ public class QuickSort {
         pivo = vetor[(esquerda + direita) / 2];
         Integer esq = esquerda;
         Integer dir = direita - 1;
-        while (esq <= dir) {
+        do {
             Boolean auxiliar = true;
             Boolean auxiliar2 = true;
             while (auxiliar) {
@@ -196,6 +197,7 @@ public class QuickSort {
                 dir--;
             }
         }
+        while (esq <= dir);
         if (esq < direita) {
             auxQuickSortInteiroMediana(vetor, esq, direita);
         }
@@ -210,7 +212,8 @@ public class QuickSort {
             pivo = vetor[(esquerda + direita) / 2];
             Integer esq = esquerda;
             Integer dir = direita - 1;
-            while (esq <= dir) {
+            do
+            {
                 Boolean auxiliar = true;
                 Boolean auxiliar2 = true;
                 while (auxiliar) {
@@ -240,6 +243,7 @@ public class QuickSort {
                     dir--;
                 }
             }
+            while (esq <= dir); 
             if (esq < direita) {
                 quickSortInteiroInsertionSort(vetor, esq, direita, resultado, numAtivarInsertion);
             }
@@ -247,15 +251,32 @@ public class QuickSort {
                 quickSortInteiroInsertionSort(vetor, esquerda, dir + 1, resultado, numAtivarInsertion);
             }
         } else {
-            for (int i = esquerda+1; i < direita; i++) {
-                Integer aux = vetor[i];
-                int j = i;
-                while ((j > esquerda) && (vetor[j - 1] > aux)) {
-                    vetor[j] = vetor[j - 1];
-                    j--;
+            int posicaoInicial = esquerda+1;
+            do
+            {
+                Boolean aux = true;
+                Integer valorASerComparado = vetor[posicaoInicial];
+                int posicaoAtual = posicaoInicial;
+                while (aux)
+                {
+                    if((vetor[posicaoAtual - 1] > valorASerComparado) && (posicaoAtual > esquerda)) 
+                    {
+                        resultado.setNumComparacoes(resultado.getNumComparacoes() + 2);
+                        vetor[posicaoAtual] = vetor[posicaoAtual - 1];
+                        posicaoAtual--;
+                        resultado.setNumTrocas(resultado.getNumTrocas() + 1);
+                    }
+                    else
+                    {
+                        resultado.setNumComparacoes(resultado.getNumComparacoes() + 2);
+                        aux = false;
+                    }
                 }
-                vetor[j] = aux;
+                vetor[posicaoAtual] = valorASerComparado;
+                resultado.setNumTrocas(resultado.getNumTrocas() + 1);
+                posicaoInicial++;
             }
+            while (posicaoInicial < direita);
         }
 
     }

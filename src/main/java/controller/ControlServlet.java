@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = {"/index.html", "/cenario1.html", "/cenario2.html", "/cenario3.html", "/cenario4.html", "/cenario5.html"})
+@WebServlet(urlPatterns = {"/index.html", "/erro.html", "/sucesso.html", "/cenario1.html", "/cenario2.html", "/cenario3.html", "/cenario4.html", "/cenario5.html"})
 public class ControlServlet extends HttpServlet {
 
     @Override
@@ -24,6 +24,8 @@ public class ControlServlet extends HttpServlet {
         rotas.put("/cenario3.html", "action.GetCenario3Action");
         rotas.put("/cenario4.html", "action.GetCenario4Action");
         rotas.put("/cenario5.html", "action.GetCenario5Action");
+        rotas.put("/sucesso.html", "action.GetSucessoAction");
+        rotas.put("/erro.html", "action.GetErroAction");
         String clazzName = rotas.get(request.getServletPath());
         try {
             Action action = (Action) Class.forName(clazzName).newInstance();
