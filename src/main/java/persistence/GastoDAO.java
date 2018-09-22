@@ -31,6 +31,7 @@ public class GastoDAO {
                     valor = Integer.parseInt(gasto[9]);
                     Gasto gasto1 = new Gasto(gasto[0], gasto[1], deputadoId, gasto[3], gasto[4], gasto[5], gasto[6], gasto[7], gasto[8], valor);
                     gastos.add(gasto1);
+                    contador++;
                 }
             } catch (Exception ex) {
                 System.err.println(ex.getMessage());
