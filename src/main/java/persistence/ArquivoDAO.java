@@ -49,7 +49,7 @@ public class ArquivoDAO {
                     conexao.write("Resultado,Tempo gasto,Número de Trocas,Número de comparações");
                     conexao.newLine();
                     for (int i = 0; i < resultado.length; i++) {
-                        conexao.write("Resultado " + i+1 + "," + resultado[i].getTempoGasto() + "," + resultado[i].getNumTrocas() + "," + resultado[i].getNumComparacoes());
+                        conexao.write("Resultado " + i + "," + resultado[i].getTempoGasto() + "," + resultado[i].getNumTrocas() + "," + resultado[i].getNumComparacoes());
                         conexao.newLine();
                     }
                     conexao.close();
@@ -61,7 +61,7 @@ public class ArquivoDAO {
                     conexao.write("Resultado,Tempo gasto,Número de Trocas,Número de comparações");
                     conexao.newLine();
                     for (int i = 0; i < resultado.length; i++) {
-                        conexao.write("Resultado " + i+1 + "," + resultado[i].getTempoGasto() + "," + resultado[i].getNumTrocas() + "," + resultado[i].getNumComparacoes());
+                        conexao.write("Resultado " + i + "," + resultado[i].getTempoGasto() + "," + resultado[i].getNumTrocas() + "," + resultado[i].getNumComparacoes());
                         conexao.newLine();
                     }
                     conexao.close();
@@ -74,7 +74,7 @@ public class ArquivoDAO {
                     conexao.write("Resultado,Tempo gasto,Número de Trocas,Número de comparações");
                     conexao.newLine();
                     for (int i = 0; i < resultado.length; i++) {
-                        conexao.write("Resultado " + i+1 + "," + resultado[i].getTempoGasto() + "," + resultado[i].getNumTrocas() + "," + resultado[i].getNumComparacoes());
+                        conexao.write("Resultado " + i + "," + resultado[i].getTempoGasto() + "," + resultado[i].getNumTrocas() + "," + resultado[i].getNumComparacoes());
                         conexao.newLine();
                     }
                     conexao.close();
@@ -87,7 +87,7 @@ public class ArquivoDAO {
                     conexao.write("Resultado,Tempo gasto,Número de Trocas,Número de comparações");
                     conexao.newLine();
                     for (int i = 0; i < resultado.length; i++) {
-                        conexao.write("Resultado " + i+1 + "," + resultado[i].getTempoGasto() + "," + resultado[i].getNumTrocas() + "," + resultado[i].getNumComparacoes());
+                        conexao.write("Resultado " + i + "," + resultado[i].getTempoGasto() + "," + resultado[i].getNumTrocas() + "," + resultado[i].getNumComparacoes());
                         conexao.newLine();
                     }
                     conexao.close();
@@ -100,7 +100,7 @@ public class ArquivoDAO {
                     conexao.write("Resultado,Tempo gasto,Número de Trocas,Número de comparações");
                     conexao.newLine();
                     for (int i = 0; i < resultado.length; i++) {
-                        conexao.write("Resultado " + i+1 + "," + resultado[i].getTempoGasto() + "," + resultado[i].getNumTrocas() + "," + resultado[i].getNumComparacoes());
+                        conexao.write("Resultado " + i + "," + resultado[i].getTempoGasto() + "," + resultado[i].getNumTrocas() + "," + resultado[i].getNumComparacoes());
                         conexao.newLine();
                     }
                     conexao.close();
@@ -113,7 +113,7 @@ public class ArquivoDAO {
                     conexao.write("Resultado,Tempo gasto,Número de Trocas,Número de comparações");
                     conexao.newLine();
                     for (int i = 0; i < resultado.length; i++) {
-                        conexao.write("Resultado " + i+1 + "," + resultado[i].getTempoGasto() + "," + resultado[i].getNumTrocas() + "," + resultado[i].getNumComparacoes());
+                        conexao.write("Resultado " + i + "," + resultado[i].getTempoGasto() + "," + resultado[i].getNumTrocas() + "," + resultado[i].getNumComparacoes());
                         conexao.newLine();
                     }
                     conexao.close();

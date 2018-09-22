@@ -147,8 +147,7 @@ public class QuickSort {
                 esq++;
                 dir--;
             }
-        }
-        while (esq <= dir);
+        } while (esq <= dir);
         if (esq < direita) {
             quickSortInteiroMediana(vetor, esq, direita, resultado, numParaMediana);
         }
@@ -196,8 +195,7 @@ public class QuickSort {
                 esq++;
                 dir--;
             }
-        }
-        while (esq <= dir);
+        } while (esq <= dir);
         if (esq < direita) {
             auxQuickSortInteiroMediana(vetor, esq, direita);
         }
@@ -212,8 +210,7 @@ public class QuickSort {
             pivo = vetor[(esquerda + direita) / 2];
             Integer esq = esquerda;
             Integer dir = direita - 1;
-            do
-            {
+            do {
                 Boolean auxiliar = true;
                 Boolean auxiliar2 = true;
                 while (auxiliar) {
@@ -242,8 +239,7 @@ public class QuickSort {
                     esq++;
                     dir--;
                 }
-            }
-            while (esq <= dir); 
+            } while (esq <= dir);
             if (esq < direita) {
                 quickSortInteiroInsertionSort(vetor, esq, direita, resultado, numAtivarInsertion);
             }
@@ -251,32 +247,30 @@ public class QuickSort {
                 quickSortInteiroInsertionSort(vetor, esquerda, dir + 1, resultado, numAtivarInsertion);
             }
         } else {
-            int posicaoInicial = esquerda+1;
-            do
-            {
-                Boolean aux = true;
-                Integer valorASerComparado = vetor[posicaoInicial];
-                int posicaoAtual = posicaoInicial;
-                while (aux)
-                {
-                    if((vetor[posicaoAtual - 1] > valorASerComparado) && (posicaoAtual > esquerda)) 
-                    {
-                        resultado.setNumComparacoes(resultado.getNumComparacoes() + 2);
-                        vetor[posicaoAtual] = vetor[posicaoAtual - 1];
-                        posicaoAtual--;
-                        resultado.setNumTrocas(resultado.getNumTrocas() + 1);
+            int posicaoInicial;
+            if (esquerda == (direita-1))
+                posicaoInicial = esquerda;
+            else
+                posicaoInicial = esquerda + 1;
+                do {
+                    Boolean aux = true;
+                    Integer valorASerComparado = vetor[posicaoInicial];
+                    int posicaoAtual = posicaoInicial;
+                    while (aux) {
+                        if ((posicaoAtual > esquerda)&&(vetor[posicaoAtual - 1] > valorASerComparado)) {
+                            resultado.setNumComparacoes(resultado.getNumComparacoes() + 2);
+                            vetor[posicaoAtual] = vetor[posicaoAtual - 1];
+                            posicaoAtual--;
+                            resultado.setNumTrocas(resultado.getNumTrocas() + 1);
+                        } else {
+                            resultado.setNumComparacoes(resultado.getNumComparacoes() + 2);
+                            aux = false;
+                        }
                     }
-                    else
-                    {
-                        resultado.setNumComparacoes(resultado.getNumComparacoes() + 2);
-                        aux = false;
-                    }
-                }
-                vetor[posicaoAtual] = valorASerComparado;
-                resultado.setNumTrocas(resultado.getNumTrocas() + 1);
-                posicaoInicial++;
-            }
-            while (posicaoInicial < direita);
+                    vetor[posicaoAtual] = valorASerComparado;
+                    resultado.setNumTrocas(resultado.getNumTrocas() + 1);
+                    posicaoInicial++;
+                } while (posicaoInicial < direita);
         }
 
     }
