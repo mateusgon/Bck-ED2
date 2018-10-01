@@ -26,7 +26,7 @@ public class MergeSort {
         Integer vetorAuxiliar[] = new Integer[vetor.length];
         Integer limiteInferiorAux = limiteInferior;
         Integer meioAux = meio + 1;
-        Integer contador = limiteInferior;
+        Integer contador = 0;
 
         do {
             if (vetor[limiteInferiorAux] < vetor[meioAux]) {
@@ -49,11 +49,14 @@ public class MergeSort {
         } while (limiteInferiorAux <= meio);
 
         do {
-            vetorAuxiliar[contador] = vetor[meioAux];
-            resultado.setNumTrocas(resultado.getNumTrocas() + 1);
-            meioAux++;
-            contador++;
-        } while (meioAux <= limiteSuperior);
+            if (meioAux < limiteSuperior)
+            {
+                vetorAuxiliar[contador] = vetor[meioAux];
+                resultado.setNumTrocas(resultado.getNumTrocas() + 1);
+                meioAux++;
+                contador++;
+            }
+        } while (meioAux < limiteSuperior);
 
         contador = limiteInferiorAux;
         while (contador < limiteSuperior) {

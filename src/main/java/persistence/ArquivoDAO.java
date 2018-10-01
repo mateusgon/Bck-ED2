@@ -67,8 +67,7 @@ public class ArquivoDAO {
                     conexao.close();
                     break;
                 }
-                case 2:
-                {
+                case 2: {
                     FileWriter fw = new FileWriter("C:\\Users\\Mateu\\Desktop\\QuickSortMediana3.txt", false);
                     BufferedWriter conexao = new BufferedWriter(fw);
                     conexao.write("Resultado,Tempo gasto,Número de Trocas,Número de comparações");
@@ -80,8 +79,7 @@ public class ArquivoDAO {
                     conexao.close();
                     break;
                 }
-                case 3:
-                {
+                case 3: {
                     FileWriter fw = new FileWriter("C:\\Users\\Mateu\\Desktop\\QuickSortMediana5.txt", false);
                     BufferedWriter conexao = new BufferedWriter(fw);
                     conexao.write("Resultado,Tempo gasto,Número de Trocas,Número de comparações");
@@ -93,8 +91,7 @@ public class ArquivoDAO {
                     conexao.close();
                     break;
                 }
-                case 4:
-                {
+                case 4: {
                     FileWriter fw = new FileWriter("C:\\Users\\Mateu\\Desktop\\QuickSortInsertion10.txt", false);
                     BufferedWriter conexao = new BufferedWriter(fw);
                     conexao.write("Resultado,Tempo gasto,Número de Trocas,Número de comparações");
@@ -106,9 +103,56 @@ public class ArquivoDAO {
                     conexao.close();
                     break;
                 }
-                case 5:
-                {
+                case 5: {
                     FileWriter fw = new FileWriter("C:\\Users\\Mateu\\Desktop\\QuickSortInsertion100.txt", false);
+                    BufferedWriter conexao = new BufferedWriter(fw);
+                    conexao.write("Resultado,Tempo gasto,Número de Trocas,Número de comparações");
+                    conexao.newLine();
+                    for (int i = 0; i < resultado.length; i++) {
+                        conexao.write("Resultado " + i + "," + resultado[i].getTempoGasto() + "," + resultado[i].getNumTrocas() + "," + resultado[i].getNumComparacoes());
+                        conexao.newLine();
+                    }
+                    conexao.close();
+                    break;
+                }
+                case 6: {
+                    FileWriter fw = new FileWriter("C:\\Users\\Mateu\\Desktop\\MergeSort.txt", false);
+                    BufferedWriter conexao = new BufferedWriter(fw);
+                    conexao.write("Resultado,Tempo gasto,Número de Trocas,Número de comparações");
+                    conexao.newLine();
+                    for (int i = 0; i < resultado.length; i++) {
+                        conexao.write("Resultado " + i + "," + resultado[i].getTempoGasto() + "," + resultado[i].getNumTrocas() + "," + resultado[i].getNumComparacoes());
+                        conexao.newLine();
+                    }
+                    conexao.close();
+                    break;
+                }
+                case 7: {
+                    FileWriter fw = new FileWriter("C:\\Users\\Mateu\\Desktop\\Insertion.txt", false);
+                    BufferedWriter conexao = new BufferedWriter(fw);
+                    conexao.write("Resultado,Tempo gasto,Número de Trocas,Número de comparações");
+                    conexao.newLine();
+                    for (int i = 0; i < resultado.length; i++) {
+                        conexao.write("Resultado " + i + "," + resultado[i].getTempoGasto() + "," + resultado[i].getNumTrocas() + "," + resultado[i].getNumComparacoes());
+                        conexao.newLine();
+                    }
+                    conexao.close();
+                    break;
+                }
+                case 8: {
+                    FileWriter fw = new FileWriter("C:\\Users\\Mateu\\Desktop\\HeapSort.txt", false);
+                    BufferedWriter conexao = new BufferedWriter(fw);
+                    conexao.write("Resultado,Tempo gasto,Número de Trocas,Número de comparações");
+                    conexao.newLine();
+                    for (int i = 0; i < resultado.length; i++) {
+                        conexao.write("Resultado " + i + "," + resultado[i].getTempoGasto() + "," + resultado[i].getNumTrocas() + "," + resultado[i].getNumComparacoes());
+                        conexao.newLine();
+                    }
+                    conexao.close();
+                    break;
+                }
+                case 9: {
+                    FileWriter fw = new FileWriter("C:\\Users\\Mateu\\Desktop\\Selection.txt", false);
                     BufferedWriter conexao = new BufferedWriter(fw);
                     conexao.write("Resultado,Tempo gasto,Número de Trocas,Número de comparações");
                     conexao.newLine();
