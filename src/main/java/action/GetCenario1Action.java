@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Gasto;
 import model.Resultado;
+import ordenacao.MergeSort;
 import ordenacao.QuickSort;
 import persistence.ArquivoDAO;
 import persistence.GastoDAO;

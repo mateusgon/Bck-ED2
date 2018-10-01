@@ -1,20 +1,35 @@
 package ordenacao;
 
+import model.Resultado;
+
 public class InsertionSort {
-    public Long ordena (Integer vetor[])
-    {
-        long tempoInicial = System.currentTimeMillis();
-        for (int i = 1; i < vetor.length; i++)
-        {
-            Integer aux = vetor[i];
-            int j = i;
-            while((j>0) && (vetor[j-1] > aux))
-            {
-                vetor[j] = vetor[j-1];
-                j--;
+
+    public void ordena(Integer vetor[], Resultado resultado) {
+        long tempoInicial = System.nanoTime();
+        Integer posicaoInicial = 1;
+        do {
+            Boolean aux = true;
+            Integer valorASerComparado = vetor[posicaoInicial];
+            int posicaoAtual = posicaoInicial;
+            while (aux) {
+                if ((posicaoAtual > 0)) {
+                    if (vetor[posicaoAtual - 1] > valorASerComparado) {
+                        vetor[posicaoAtual] = vetor[posicaoAtual - 1];
+                        posicaoAtual--;
+                        resultado.setNumTrocas(resultado.getNumTrocas() + 1);
+                    } else {
+                        aux = false;
+                    }
+                    resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
+                } else {
+                    aux = false;
+                }
             }
-            vetor[j] = aux;
-        }
-        return System.currentTimeMillis() - tempoInicial;
+            vetor[posicaoAtual] = valorASerComparado;
+            resultado.setNumTrocas(resultado.getNumTrocas() + 1);
+            posicaoInicial++;
+        } while (posicaoInicial < vetor.length);
+        resultado.setTempoGasto(System.nanoTime()- tempoInicial);
+
     }
 }
