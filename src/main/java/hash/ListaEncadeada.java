@@ -1,4 +1,6 @@
-package model;
+package hash;
+
+import model.Resultado;
 
 public class ListaEncadeada {
 

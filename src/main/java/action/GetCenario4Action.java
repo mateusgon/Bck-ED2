@@ -1,6 +1,6 @@
 package action;
 
-import hash.TabelaHashEncadeamento;
+import hash.TabelaHashEncadeamentoSeparado;
 import hash.TabelaHashEnderecamento;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
@@ -108,7 +108,7 @@ public class GetCenario4Action implements Action {
                         for (int k = 0; k < quantidadeLeitura[i]; k++) {
                             analise[k] = GastoDAO.getInstance().get(k).getDeputy_id();
                         }
-                        TabelaHashEncadeamento tabela = new TabelaHashEncadeamento();
+                        TabelaHashEncadeamentoSeparado tabela = new TabelaHashEncadeamentoSeparado();
                         Resultado resultado = new Resultado();
                         tabela.EncadeamentoSeparado(analise, resultado);
                         resultados[contadorLeitura] = resultado;
@@ -116,13 +116,35 @@ public class GetCenario4Action implements Action {
                         contadorLeitura++;
                     }
                 }
-                ArquivoDAO.escrever(12, resultados);
+                ArquivoDAO.escrever(13, resultados);
                 request.setAttribute("resultadoLeitura", resultados);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
                 dispatcher.forward(request, response);
                 break;
             }
             case 5: {
+                Integer[] quantidadeLeitura = ArquivoDAO.getInstance();
+                Resultado[] resultados = new Resultado[30];
+                Integer contadorLeitura = 0;
+                for (int i = 1; i < quantidadeLeitura.length; i++) {
+                    for (int j = 0; j < 5; j++) {
+                        GastoDAO.shuffle();
+                        Integer[] analise = new Integer[quantidadeLeitura[i]];
+                        for (int k = 0; k < quantidadeLeitura[i]; k++) {
+                            analise[k] = GastoDAO.getInstance().get(k).getDeputy_id();
+                        }
+                        TabelaHashEncadeamentoSeparado tabela = new TabelaHashEncadeamentoSeparado();
+                        Resultado resultado = new Resultado();
+                        tabela.EncadeamentoSeparado(analise, resultado);
+                        resultados[contadorLeitura] = resultado;
+                        System.out.println(contadorLeitura);
+                        contadorLeitura++;
+                    }
+                }
+                ArquivoDAO.escrever(13, resultados);
+                request.setAttribute("resultadoLeitura", resultados);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
+                dispatcher.forward(request, response);
                 break;
             }
             case 6: {

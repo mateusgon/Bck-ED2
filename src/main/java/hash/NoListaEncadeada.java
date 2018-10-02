@@ -1,4 +1,4 @@
-package model;
+package hash;
 
 public class NoListaEncadeada {
 
