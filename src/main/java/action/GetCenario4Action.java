@@ -1,5 +1,6 @@
 package action;
 
+import hash.TabelaHashEncadeamento;
 import hash.TabelaHashEnderecamento;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
@@ -97,6 +98,28 @@ public class GetCenario4Action implements Action {
                 break;
             }
             case 4: {
+                Integer[] quantidadeLeitura = ArquivoDAO.getInstance();
+                Resultado[] resultados = new Resultado[30];
+                Integer contadorLeitura = 0;
+                for (int i = 1; i < quantidadeLeitura.length; i++) {
+                    for (int j = 0; j < 5; j++) {
+                        GastoDAO.shuffle();
+                        Integer[] analise = new Integer[quantidadeLeitura[i]];
+                        for (int k = 0; k < quantidadeLeitura[i]; k++) {
+                            analise[k] = GastoDAO.getInstance().get(k).getDeputy_id();
+                        }
+                        TabelaHashEncadeamento tabela = new TabelaHashEncadeamento();
+                        Resultado resultado = new Resultado();
+                        tabela.EncadeamentoSeparado(analise, resultado);
+                        resultados[contadorLeitura] = resultado;
+                        System.out.println(contadorLeitura);
+                        contadorLeitura++;
+                    }
+                }
+                ArquivoDAO.escrever(12, resultados);
+                request.setAttribute("resultadoLeitura", resultados);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
+                dispatcher.forward(request, response);
                 break;
             }
             case 5: {
