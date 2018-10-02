@@ -1,9 +1,11 @@
 package hash;
 
+import model.Resultado;
+
 public class TabelaHashEnderecamento {
 
-    Integer gastos[] = new Integer[750000];
-    Integer tamanho = 750000;
+    Integer gastos[] = new Integer[1500000];
+    Integer tamanho = 1500000;
 
     public TabelaHashEnderecamento() {
         for (int i = 0; i < gastos.length; i++) {
@@ -12,38 +14,49 @@ public class TabelaHashEnderecamento {
     }
 
     public double funcaoHash(Integer valor) {
-        return valor % 0.61803399;
+        return valor * 0.61803399;
     }
 
     public double funcaoHash2(Integer valor) {
-        return valor % 0.59357;
+        return valor % tamanho;
     }
 
-    public void insereSondagemLinear(Integer valor[]) {
+    public void insereSondagemLinear(Integer valor[], Resultado resultado) {
+        Runtime runtime = Runtime.getRuntime();
         for (int i = 0; i < valor.length; i++) {
             Integer posicao = (int) funcaoHash(valor[i]);
             if (posicao >= gastos.length) {
+                resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
                 posicao = posicao - gastos.length;
             }
             if (gastos[posicao] == -1) {
+                resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
                 gastos[posicao] = valor[i];
             } else {
                 Integer repeticao = 1;
                 Boolean naoInserido = true;
                 while (naoInserido) {
-                    Integer indice = SondagemLinear(posicao, valor[i], repeticao);
+                    Integer indice = SondagemLinear(posicao, repeticao);
+                    if (indice == 0) {
+                        System.out.println("Entrei aqui");
+                        naoInserido = false;
+                    }
                     if (gastos[indice] == -1) {
                         gastos[indice] = valor[i];
                         naoInserido = false;
                     } else {
                         repeticao++;
                     }
+                    resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
                 }
             }
         }
+        runtime.gc();
+        long memory = runtime.totalMemory() - runtime.freeMemory();
+        resultado.setMemoriaGasto(memory);
     }
 
-    public Integer SondagemLinear(Integer posicao, Integer valor, Integer repeticao) {
+    public Integer SondagemLinear(Integer posicao, Integer repeticao) {
         Integer indice = posicao + repeticao;
         if (posicao >= (gastos.length)) {
             return 0;
@@ -51,32 +64,42 @@ public class TabelaHashEnderecamento {
         return indice;
     }
 
-    public void insereSondagemQuadratica(Integer valor[]) {
+    public void insereSondagemQuadratica(Integer valor[], Resultado resultado) {
+        Runtime runtime = Runtime.getRuntime();
         for (int i = 0; i < valor.length; i++) {
             Integer posicao = (int) funcaoHash(valor[i]);
             if (posicao >= gastos.length) {
                 posicao = posicao - gastos.length;
             }
             if (gastos[posicao] == -1) {
+                resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
                 gastos[posicao] = valor[i];
             } else {
                 Integer repeticao = 1;
                 Boolean naoInserido = true;
                 while (naoInserido) {
-                    Integer indice = SondagemQuadratica(posicao, valor[i], repeticao);
+                    Integer indice = SondagemQuadratica(posicao, repeticao);
+                    if (indice == 0) {
+                        System.out.println("Entrei aqui");
+                        naoInserido = false;
+                    }
                     if (gastos[indice] == -1) {
                         gastos[indice] = valor[i];
                         naoInserido = false;
                     } else {
                         repeticao++;
                     }
+                    resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
                 }
             }
         }
+        runtime.gc();
+        long memory = runtime.totalMemory() - runtime.freeMemory();
+        resultado.setMemoriaGasto(memory);
     }
 
-    public Integer SondagemQuadratica(Integer posicao, Integer valor, Integer quantidadeColisao) {
-        Integer indice = posicao + 1 * quantidadeColisao + 2 * (int) Math.pow(quantidadeColisao, 2);
+    public Integer SondagemQuadratica(Integer posicao, Integer quantidadeColisao) {
+        Integer indice = posicao + 2 * quantidadeColisao + 1 * (int) Math.pow(quantidadeColisao, 2);
         if (indice >= (gastos.length) || indice <= 0) {
             return 0;
         }
@@ -84,7 +107,8 @@ public class TabelaHashEnderecamento {
 
     }
 
-    public void insereDuploHash(Integer valor[]) {
+    public void insereDuploHash(Integer valor[], Resultado resultado) {
+        Runtime runtime = Runtime.getRuntime();
         for (int i = 0; i < valor.length; i++) {
             Integer posicao = (int) funcaoHash(valor[i]);
             if (posicao >= gastos.length) {
@@ -92,25 +116,34 @@ public class TabelaHashEnderecamento {
             }
             if (gastos[posicao] == -1) {
                 gastos[posicao] = valor[i];
+                resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
             } else {
                 Integer posicao2 = (int) funcaoHash2(valor[i]);
                 Integer repeticao = 1;
                 Boolean naoInserido = true;
                 while (naoInserido) {
-                    Integer indice = DuploHash(posicao, posicao2, valor[i], repeticao);
+                    Integer indice = DuploHash(posicao, posicao2, repeticao);
+                    if (indice == 0) {
+                        System.out.println("Entrei aqui");
+                        naoInserido = false;
+                    }
                     if (gastos[indice] == -1) {
                         gastos[indice] = valor[i];
                         naoInserido = false;
                     } else {
                         repeticao++;
                     }
+                    resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
                 }
             }
         }
+        runtime.gc();
+        long memory = runtime.totalMemory() - runtime.freeMemory();
+        resultado.setMemoriaGasto(memory);
     }
 
-    public Integer DuploHash(Integer posicao, Integer posicao2, Integer valor, Integer quantidadeColisao) {
-        Integer indice = posicao + 1 * quantidadeColisao + 2 * (int) Math.pow(quantidadeColisao, 2);
+    public Integer DuploHash(Integer posicao, Integer posicao2, Integer quantidadeColisao) {
+        Integer indice = posicao + posicao2 * quantidadeColisao;
         if (indice >= (gastos.length) || indice <= 0) {
             return 0;
         }

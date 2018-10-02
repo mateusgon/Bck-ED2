@@ -5,7 +5,6 @@ import model.Resultado;
 public class InsertionSort {
 
     public void ordena(Integer vetor[], Resultado resultado) {
-        System.out.println("entrei");
         long tempoInicial = System.nanoTime();
         Integer posicaoInicial = 1;
         do {
@@ -31,10 +30,5 @@ public class InsertionSort {
             posicaoInicial++;
         } while (posicaoInicial < vetor.length);
         resultado.setTempoGasto(System.nanoTime()- tempoInicial);
-        for(int i = 0; i < vetor.length; i++)
-        {
-            System.out.println(vetor[i]);
-        }
-        System.out.println("sai");
     }
 }

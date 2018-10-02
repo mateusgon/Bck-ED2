@@ -5,7 +5,6 @@ import model.Resultado;
 public class SelectionSort {
 
     public void ordena(Integer vetor[], Resultado resultado) {
-        System.out.println("entrei");
         long tempoInicial = System.nanoTime();
         Integer contador = 0;
         do {
@@ -25,10 +24,5 @@ public class SelectionSort {
             contador++;
         } while (contador < vetor.length);
         resultado.setTempoGasto(System.nanoTime()- tempoInicial);
-        for(int i = 0; i < vetor.length; i++)
-        {
-            System.out.println(vetor[i]);
-        }
-        System.out.println("sai");
     }
 }

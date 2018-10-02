@@ -4,6 +4,7 @@ public class Resultado {
     private Integer numComparacoes;
     private Integer numTrocas;
     private Long tempoGasto;
+    private Long memoriaGasto;
 
     public Resultado(Integer numComparacoes, Integer numTrocas, Long tempoGasto) {
         this.numComparacoes = numComparacoes;
@@ -40,8 +41,12 @@ public class Resultado {
         this.tempoGasto = tempoGasto;
     }
 
-    
-    
-    
-    
+    public Long getMemoriaGasto() {
+        return memoriaGasto;
+    }
+
+    public void setMemoriaGasto(Long memoriaGasto) {
+        this.memoriaGasto = memoriaGasto;
+    }
+
 }

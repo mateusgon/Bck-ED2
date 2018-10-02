@@ -6,7 +6,7 @@ public class MergeSort {
 
     public void ordena(Integer vetor[], Resultado resultado) {
         long tempoInicial = System.nanoTime();
-        mergeSortInteiro(vetor, 0, vetor.length - 1, resultado);
+        mergeSortInteiro(vetor, 0, vetor.length, resultado);
         resultado.setTempoGasto(System.nanoTime() - tempoInicial);
     }
 
@@ -16,8 +16,6 @@ public class MergeSort {
             mergeSortInteiro(vetor, limiteInferior, meio, resultado);
             mergeSortInteiro(vetor, meio + 1, limiteSuperior, resultado);
             merge(vetor, limiteInferior, meio, limiteSuperior, resultado);
-        } else {
-            return;
         }
     }
 
@@ -25,7 +23,7 @@ public class MergeSort {
 
         Integer vetorAuxiliar[] = new Integer[vetor.length];
         Integer limiteInferiorAux = limiteInferior;
-        Integer meioAux = meio + 1;
+        Integer meioAux = meio;
         Integer contador = 0;
 
         do {
@@ -39,26 +37,23 @@ public class MergeSort {
             resultado.setNumTrocas(resultado.getNumTrocas() + 1);
             resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
             contador++;
-        } while (limiteInferiorAux <= meio && meioAux <= limiteSuperior);
+        } while (limiteInferiorAux < meio && meioAux < limiteSuperior);
 
-        do {
+        for (int aux = limiteInferiorAux; aux < meio; aux++) {
             vetorAuxiliar[contador] = vetor[limiteInferiorAux];
             resultado.setNumTrocas(resultado.getNumTrocas() + 1);
             limiteInferiorAux++;
             contador++;
-        } while (limiteInferiorAux <= meio);
+        }
 
-        do {
-            if (meioAux < limiteSuperior)
-            {
-                vetorAuxiliar[contador] = vetor[meioAux];
-                resultado.setNumTrocas(resultado.getNumTrocas() + 1);
-                meioAux++;
-                contador++;
-            }
-        } while (meioAux < limiteSuperior);
+        for (int aux = meioAux; meioAux < limiteSuperior; aux++) {
+            vetorAuxiliar[contador] = vetor[meioAux];
+            resultado.setNumTrocas(resultado.getNumTrocas() + 1);
+            meioAux++;
+            contador++;
+        }
 
-        contador = limiteInferiorAux;
+        contador = limiteInferior;
         while (contador < limiteSuperior) {
             resultado.setNumTrocas(resultado.getNumTrocas() + 1);
             vetor[contador] = vetorAuxiliar[contador - limiteInferior];

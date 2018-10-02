@@ -1,5 +1,6 @@
 package action;
 
+import hash.TabelaHashEnderecamento;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -7,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Gasto;
 import model.Resultado;
+import ordenacao.HeapSort;
 import ordenacao.InsertionSort;
 import ordenacao.MergeSort;
 import ordenacao.QuickSort;
@@ -63,6 +65,7 @@ public class GetCenario3Action implements Action {
                         MergeSort merge = new MergeSort();
                         Resultado resultado = new Resultado();
                         merge.ordena(analise, resultado);
+                        System.out.println(contadorLeitura);
                         resultados[contadorLeitura] = resultado;
                         contadorLeitura++;
                     }
@@ -88,6 +91,7 @@ public class GetCenario3Action implements Action {
                         Resultado resultado = new Resultado();
                         insertion.ordena(analise, resultado);
                         resultados[contadorLeitura] = resultado;
+                        System.out.println(contadorLeitura);
                         contadorLeitura++;
                     }
                 }
@@ -98,6 +102,28 @@ public class GetCenario3Action implements Action {
                 break;
             }
             case 4: {
+                Integer[] quantidadeLeitura = ArquivoDAO.getInstance();
+                Resultado[] resultados = new Resultado[30];
+                Integer contadorLeitura = 0;
+                for (int i = 1; i < quantidadeLeitura.length; i++) {
+                    for (int j = 0; j < 5; j++) {
+                        GastoDAO.shuffle();
+                        Integer[] analise = new Integer[quantidadeLeitura[i]];
+                        for (int k = 0; k < quantidadeLeitura[i]; k++) {
+                            analise[k] = GastoDAO.getInstance().get(k).getReceipt_value();
+                        }
+                        HeapSort heap = new HeapSort();
+                        Resultado resultado = new Resultado();
+                        heap.ordena(analise, analise.length, resultado);
+                        resultados[contadorLeitura] = resultado;
+                        System.out.println(contadorLeitura);
+                        contadorLeitura++;
+                    }
+                }
+                ArquivoDAO.escrever(8, resultados);
+                request.setAttribute("resultadoLeitura", resultados);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
+                dispatcher.forward(request, response);
                 break;
             }
             case 5: {
@@ -115,6 +141,7 @@ public class GetCenario3Action implements Action {
                         Resultado resultado = new Resultado();
                         selection.ordena(analise, resultado);
                         resultados[contadorLeitura] = resultado;
+                        System.out.println(contadorLeitura);
                         contadorLeitura++;
                     }
                 }
@@ -125,6 +152,82 @@ public class GetCenario3Action implements Action {
                 break;
             }
             case 6: {
+                Integer[] quantidadeLeitura = ArquivoDAO.getInstance();
+                Resultado[] resultados = new Resultado[30];
+                Integer contadorLeitura = 0;
+                for (int i = 1; i < quantidadeLeitura.length; i++) {
+                    for (int j = 0; j < 5; j++) {
+                        GastoDAO.shuffle();
+                        Integer[] analise = new Integer[quantidadeLeitura[i]];
+                        for (int k = 0; k < quantidadeLeitura[i]; k++) {
+                            analise[k] = GastoDAO.getInstance().get(k).getReceipt_value();
+                        }
+                        InsertionSort insertion = new InsertionSort();
+                        Resultado resultado = new Resultado();
+                        insertion.ordena(analise, resultado);
+                        resultados[contadorLeitura] = resultado;
+                        System.out.println(contadorLeitura);
+                        contadorLeitura++;
+                    }
+                }
+                ArquivoDAO.escrever(7, resultados);
+                quantidadeLeitura = ArquivoDAO.getInstance();
+                resultados = new Resultado[30];
+                contadorLeitura = 0;
+                for (int i = 1; i < quantidadeLeitura.length; i++) {
+                    for (int j = 0; j < 5; j++) {
+                        GastoDAO.shuffle();
+                        Integer[] analise = new Integer[quantidadeLeitura[i]];
+                        for (int k = 0; k < quantidadeLeitura[i]; k++) {
+                            analise[k] = GastoDAO.getInstance().get(k).getDeputy_id();
+                        }
+                        TabelaHashEnderecamento tabela = new TabelaHashEnderecamento();
+                        Resultado resultado = new Resultado();
+                        tabela.insereSondagemLinear(analise, resultado);
+                        resultados[contadorLeitura] = resultado;
+                        System.out.println(contadorLeitura);
+                        contadorLeitura++;
+                    }
+                }
+                ArquivoDAO.escrever(10, resultados);
+                quantidadeLeitura = ArquivoDAO.getInstance();
+                resultados = new Resultado[30];
+                contadorLeitura = 0;
+                for (int i = 1; i < quantidadeLeitura.length; i++) {
+                    for (int j = 0; j < 5; j++) {
+                        GastoDAO.shuffle();
+                        Integer[] analise = new Integer[quantidadeLeitura[i]];
+                        for (int k = 0; k < quantidadeLeitura[i]; k++) {
+                            analise[k] = GastoDAO.getInstance().get(k).getDeputy_id();
+                        }
+                        TabelaHashEnderecamento tabela = new TabelaHashEnderecamento();
+                        Resultado resultado = new Resultado();
+                        tabela.insereSondagemQuadratica(analise, resultado);
+                        resultados[contadorLeitura] = resultado;
+                        System.out.println(contadorLeitura);
+                        contadorLeitura++;
+                    }
+                }
+                ArquivoDAO.escrever(11, resultados);
+                quantidadeLeitura = ArquivoDAO.getInstance();
+                resultados = new Resultado[30];
+                contadorLeitura = 0;
+                for (int i = 1; i < quantidadeLeitura.length; i++) {
+                    for (int j = 0; j < 5; j++) {
+                        GastoDAO.shuffle();
+                        Integer[] analise = new Integer[quantidadeLeitura[i]];
+                        for (int k = 0; k < quantidadeLeitura[i]; k++) {
+                            analise[k] = GastoDAO.getInstance().get(k).getDeputy_id();
+                        }
+                        TabelaHashEnderecamento tabela = new TabelaHashEnderecamento();
+                        Resultado resultado = new Resultado();
+                        tabela.insereDuploHash(analise, resultado);
+                        resultados[contadorLeitura] = resultado;
+                        System.out.println(contadorLeitura);
+                        contadorLeitura++;
+                    }
+                }
+                ArquivoDAO.escrever(12, resultados);
                 break;
             }
             default: {
