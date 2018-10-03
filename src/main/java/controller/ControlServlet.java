@@ -12,13 +12,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = {"/index.html", "/erro.html", "/sucesso.html", "/cenario1.html", "/cenario2.html", "/cenario3.html", "/cenario4.html", "/cenario5.html"})
+@WebServlet(urlPatterns = {"/index.html", "/inicial.html", "/item.html", "/erro.html", "/sucesso.html", "/cenario1.html", "/cenario2.html", "/cenario3.html", "/cenario4.html", "/cenario5.html"})
 public class ControlServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, String> rotas = new HashMap<>();
         rotas.put("/index.html", "action.GetIndexAction");
+        rotas.put("/inicial.html", "action.GetInicialAction");
+        rotas.put("/item.html", "action.GetEscolhaItemAction");
         rotas.put("/cenario1.html", "action.GetCenario1Action");
         rotas.put("/cenario2.html", "action.GetCenario2Action");
         rotas.put("/cenario3.html", "action.GetCenario3Action");
@@ -39,6 +41,7 @@ public class ControlServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, String> rotas = new HashMap<>();
+        rotas.put("/inicial.html", "action.PostInicialAction");
         String clazzName = rotas.get(request.getServletPath());
         try {
             Action action = (Action) Class.forName(clazzName).newInstance();

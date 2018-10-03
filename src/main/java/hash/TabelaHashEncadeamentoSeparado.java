@@ -4,10 +4,12 @@ import model.Resultado;
 
 public class TabelaHashEncadeamentoSeparado {
 
-    ListaEncadeada gastos[] = new ListaEncadeada[50000];
-    Integer tamanho = 50000;
+    ListaEncadeada gastos[];
+    Integer tamanho;
 
-    public TabelaHashEncadeamentoSeparado() {
+    public TabelaHashEncadeamentoSeparado(Integer tamanho) {
+        gastos = new ListaEncadeada[tamanho];
+        this.tamanho = tamanho;
         for (int i = 0; i < gastos.length; i++) {
             gastos[i] = new ListaEncadeada();
         }

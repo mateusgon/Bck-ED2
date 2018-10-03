@@ -1,5 +1,6 @@
 package action;
 
+import hash.TabelaHashEncadeamentoCoalescido;
 import hash.TabelaHashEncadeamentoSeparado;
 import hash.TabelaHashEnderecamento;
 import java.io.IOException;
@@ -43,7 +44,7 @@ public class GetCenario4Action implements Action {
                 }
                 ArquivoDAO.escrever(10, resultados);
                 request.setAttribute("resultadoLeitura", resultados);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados2.jsp");
                 dispatcher.forward(request, response);
                 break;
             }
@@ -68,7 +69,7 @@ public class GetCenario4Action implements Action {
                 }
                 ArquivoDAO.escrever(11, resultados);
                 request.setAttribute("resultadoLeitura", resultados);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados2.jsp");
                 dispatcher.forward(request, response);
                 break;
             }
@@ -93,7 +94,7 @@ public class GetCenario4Action implements Action {
                 }
                 ArquivoDAO.escrever(12, resultados);
                 request.setAttribute("resultadoLeitura", resultados);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados2.jsp");
                 dispatcher.forward(request, response);
                 break;
             }
@@ -108,7 +109,7 @@ public class GetCenario4Action implements Action {
                         for (int k = 0; k < quantidadeLeitura[i]; k++) {
                             analise[k] = GastoDAO.getInstance().get(k).getDeputy_id();
                         }
-                        TabelaHashEncadeamentoSeparado tabela = new TabelaHashEncadeamentoSeparado();
+                        TabelaHashEncadeamentoSeparado tabela = new TabelaHashEncadeamentoSeparado(analise.length);
                         Resultado resultado = new Resultado();
                         tabela.EncadeamentoSeparado(analise, resultado);
                         resultados[contadorLeitura] = resultado;
@@ -118,7 +119,7 @@ public class GetCenario4Action implements Action {
                 }
                 ArquivoDAO.escrever(13, resultados);
                 request.setAttribute("resultadoLeitura", resultados);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados2.jsp");
                 dispatcher.forward(request, response);
                 break;
             }
@@ -133,17 +134,17 @@ public class GetCenario4Action implements Action {
                         for (int k = 0; k < quantidadeLeitura[i]; k++) {
                             analise[k] = GastoDAO.getInstance().get(k).getDeputy_id();
                         }
-                        TabelaHashEncadeamentoSeparado tabela = new TabelaHashEncadeamentoSeparado();
+                        TabelaHashEncadeamentoCoalescido tabela = new TabelaHashEncadeamentoCoalescido(analise.length);
                         Resultado resultado = new Resultado();
-                        tabela.EncadeamentoSeparado(analise, resultado);
+                        tabela.encadeamentoCoalescido(analise, resultado);
                         resultados[contadorLeitura] = resultado;
                         System.out.println(contadorLeitura);
                         contadorLeitura++;
                     }
                 }
-                ArquivoDAO.escrever(13, resultados);
+                ArquivoDAO.escrever(14, resultados);
                 request.setAttribute("resultadoLeitura", resultados);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados2.jsp");
                 dispatcher.forward(request, response);
                 break;
             }

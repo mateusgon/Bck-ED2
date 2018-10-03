@@ -39,6 +39,13 @@ public class ArquivoDAO {
         return leituras;
     }
 
+    public static Integer[] getInstance(Integer[] valores) throws FileNotFoundException {
+        if (leituras == null) {
+            leituras = valores;
+        }
+        return leituras;
+    }
+
     public static void escrever(Integer indicador, Resultado[] resultado) {
         try {
             switch (indicador) {

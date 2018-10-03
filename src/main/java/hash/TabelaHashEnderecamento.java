@@ -4,8 +4,8 @@ import model.Resultado;
 
 public class TabelaHashEnderecamento {
 
-    Integer gastos[] = new Integer[1500000];
-    Integer tamanho = 1500000;
+    Integer gastos[] = new Integer[1000000];
+    Integer tamanho = 1000000;
 
     public TabelaHashEnderecamento() {
         for (int i = 0; i < gastos.length; i++) {

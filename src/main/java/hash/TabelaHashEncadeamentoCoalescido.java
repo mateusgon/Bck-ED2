@@ -4,10 +4,14 @@ import model.Resultado;
 
 public class TabelaHashEncadeamentoCoalescido {
 
-    NoListaEncadeamentoCoalescido gastos[] = new NoListaEncadeamentoCoalescido[1500000];
-    Integer tamanho = 1500000;
+    NoListaEncadeamentoCoalescido gastos[];
+    Integer tamanho;
+    Integer ultimaPosicaoVazia;
 
-    public TabelaHashEncadeamentoCoalescido() {
+    public TabelaHashEncadeamentoCoalescido(Integer tamanho) {
+        gastos = new NoListaEncadeamentoCoalescido[tamanho];
+        this.tamanho = tamanho;
+        this.ultimaPosicaoVazia = tamanho;
         for (int i = 0; i < tamanho; i++) {
             gastos[i] = new NoListaEncadeamentoCoalescido();
         }
@@ -25,27 +29,35 @@ public class TabelaHashEncadeamentoCoalescido {
     public void encadeamentoCoalescido(Integer valor[], Resultado resultado) {
         Runtime runtime = Runtime.getRuntime();
         long tempoInicial = System.nanoTime();
+        Integer auxUltimaPosicaoVazia = tamanho - 1;
         for (int i = 0; i < valor.length; i++) {
             Integer posicao = funcaoHash(valor[i], resultado);
-            if (gastos[i].getDeputy_id() == -1) {
+            if (gastos[posicao].getDeputy_id() == -1) {
                 resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
-                gastos[i].setDeputy_id(valor[i]);
+                gastos[posicao].setDeputy_id(valor[i]);
             } else {
-                Boolean inserido = false;
-                Integer indiceReferencia = posicao;
-                Integer auxTamanho = tamanho;
-                while (auxTamanho > 0 && !inserido) {
-                    auxTamanho--;
-                    if (gastos[auxTamanho].getDeputy_id() == -1) {
-                        gastos[auxTamanho].setDeputy_id(valor[i]);
-                        gastos[posicao].setProximaPosicaoVetor(indiceReferencia);
-                        inserido = true;
-                    } else {
-                        indiceReferencia = auxTamanho;
+                Boolean trocado = false;
+                Integer contador = ultimaPosicaoVazia;
+                while (contador > 0 && !trocado) {
+                    contador--;
+                    if (gastos[contador].getDeputy_id() == -1) {
+                        gastos[contador].setDeputy_id(valor[i]);
+                        if (gastos[posicao].getProximaPosicaoVetor() == -1) {
+                            gastos[posicao].setProximaPosicaoVetor(contador);
+                        } else {
+                            gastos[auxUltimaPosicaoVazia].setProximaPosicaoVetor(contador);
+                        }
+                        auxUltimaPosicaoVazia = contador;
+                        ultimaPosicaoVazia = contador;
+                        trocado = true;
                     }
                     resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
                 }
             }
+        }
+        for (int i = 0; i < tamanho && tamanho == 1000; i++) {
+            System.out.println(i + "-" + gastos[i].getDeputy_id());
+            System.out.println("Aponta para" + gastos[i].getProximaPosicaoVetor());
         }
         resultado.setTempoGasto(System.nanoTime() - tempoInicial);
         runtime.gc();
