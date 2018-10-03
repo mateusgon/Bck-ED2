@@ -39,7 +39,7 @@ public class GetCenario2Action implements Action {
                         contadorLeitura++;
                     }
                 }
-                ArquivoDAO.escrever(1, resultados);
+                ArquivoDAO.escrever(0, "QuickSortInteiros", resultados);
                 request.setAttribute("resultadoLeitura", resultados);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
                 dispatcher.forward(request, response);
@@ -65,7 +65,7 @@ public class GetCenario2Action implements Action {
                             contadorLeitura++;
                         }
                     }
-                    ArquivoDAO.escrever(2, resultados);
+                    ArquivoDAO.escrever(0, "QuickSortMediana3", resultados);
                     request.setAttribute("resultadoLeitura", resultados);
                     RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
                     dispatcher.forward(request, response);
@@ -86,7 +86,7 @@ public class GetCenario2Action implements Action {
                             contadorLeitura++;
                         }
                     }
-                    ArquivoDAO.escrever(3, resultados);
+                    ArquivoDAO.escrever(0, "QuickSortMediana5", resultados);
                     request.setAttribute("resultadoLeitura", resultados);
                     RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
                     dispatcher.forward(request, response);
@@ -115,7 +115,7 @@ public class GetCenario2Action implements Action {
                             contadorLeitura++;
                         }
                     }
-                    ArquivoDAO.escrever(4, resultados);
+                    ArquivoDAO.escrever(0, "QuickSortInsertion10", resultados);
                     request.setAttribute("resultadoLeitura", resultados);
                     RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
                     dispatcher.forward(request, response);
@@ -136,7 +136,7 @@ public class GetCenario2Action implements Action {
                             contadorLeitura++;
                         }
                     }
-                    ArquivoDAO.escrever(5, resultados);
+                    ArquivoDAO.escrever(0, "QuickSortInsertion100", resultados);
                     request.setAttribute("resultadoLeitura", resultados);
                     RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
                     dispatcher.forward(request, response);
@@ -187,11 +187,11 @@ public class GetCenario2Action implements Action {
                         contadorLeitura++;
                     }
                 }
-                ArquivoDAO.escrever(1, resultados);
-                ArquivoDAO.escrever(2, resultados2);
-                ArquivoDAO.escrever(3, resultados3);
-                ArquivoDAO.escrever(4, resultados4);
-                ArquivoDAO.escrever(5, resultados5);
+                ArquivoDAO.escrever(0, "QuickSortInteiros" , resultados);
+                ArquivoDAO.escrever(0, "QuickSortMediana3", resultados2);
+                ArquivoDAO.escrever(0, "QuickSortMediana5", resultados3);
+                ArquivoDAO.escrever(0,"QuickSortInsertion10", resultados4);
+                ArquivoDAO.escrever(0,"QuickSortInsertion100", resultados5);
                 response.sendRedirect("sucesso.html");
                 break;
             }

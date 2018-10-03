@@ -42,7 +42,7 @@ public class GetCenario4Action implements Action {
                         contadorLeitura++;
                     }
                 }
-                ArquivoDAO.escrever(10, resultados);
+                ArquivoDAO.escrever(1, "SondagemLinear", resultados);
                 request.setAttribute("resultadoLeitura", resultados);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados2.jsp");
                 dispatcher.forward(request, response);
@@ -67,7 +67,7 @@ public class GetCenario4Action implements Action {
                         contadorLeitura++;
                     }
                 }
-                ArquivoDAO.escrever(11, resultados);
+                ArquivoDAO.escrever(1, "SondagemQuadratica", resultados);
                 request.setAttribute("resultadoLeitura", resultados);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados2.jsp");
                 dispatcher.forward(request, response);
@@ -92,7 +92,7 @@ public class GetCenario4Action implements Action {
                         contadorLeitura++;
                     }
                 }
-                ArquivoDAO.escrever(12, resultados);
+                ArquivoDAO.escrever(1, "DuploHash", resultados);
                 request.setAttribute("resultadoLeitura", resultados);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados2.jsp");
                 dispatcher.forward(request, response);
@@ -117,7 +117,7 @@ public class GetCenario4Action implements Action {
                         contadorLeitura++;
                     }
                 }
-                ArquivoDAO.escrever(13, resultados);
+                ArquivoDAO.escrever(1, "EncadeamentoSeparado", resultados);
                 request.setAttribute("resultadoLeitura", resultados);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados2.jsp");
                 dispatcher.forward(request, response);
@@ -142,7 +142,7 @@ public class GetCenario4Action implements Action {
                         contadorLeitura++;
                     }
                 }
-                ArquivoDAO.escrever(14, resultados);
+                ArquivoDAO.escrever(1, "EncadeamentoCoalescido", resultados);
                 request.setAttribute("resultadoLeitura", resultados);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados2.jsp");
                 dispatcher.forward(request, response);

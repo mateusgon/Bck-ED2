@@ -14,7 +14,7 @@ public class PostInicialAction implements Action {
         String texto = request.getParameter("quantidadeElementos");
         String delimitador = ",";
         String[] tamanhos = texto.split(delimitador);
-        Integer[] valores = new Integer[6];
+        Integer[] valores = new Integer[7];
         valores[0] = 6;
         for (Integer i = 1; i < 7; i++) {
             valores[i] = Integer.parseInt(tamanhos[i - 1]);

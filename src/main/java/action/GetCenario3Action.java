@@ -40,12 +40,12 @@ public class GetCenario3Action implements Action {
                         }
                         QuickSort quick = new QuickSort();
                         Resultado resultado = new Resultado();
-                        quick.ordenaInteiro(analise, resultado);
+                        quick.ordenaInteiroQuickSortInsertion(analise, resultado, 100);
                         resultados[contadorLeitura] = resultado;
                         contadorLeitura++;
                     }
                 }
-                ArquivoDAO.escrever(1, resultados);
+                ArquivoDAO.escrever(0, "QuickSortInsertion100", resultados);
                 request.setAttribute("resultadoLeitura", resultados);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
                 dispatcher.forward(request, response);
@@ -70,7 +70,7 @@ public class GetCenario3Action implements Action {
                         contadorLeitura++;
                     }
                 }
-                ArquivoDAO.escrever(6, resultados);
+                ArquivoDAO.escrever(0, "MergeSort", resultados);
                 request.setAttribute("resultadoLeitura", resultados);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
                 dispatcher.forward(request, response);
@@ -95,7 +95,7 @@ public class GetCenario3Action implements Action {
                         contadorLeitura++;
                     }
                 }
-                ArquivoDAO.escrever(7, resultados);
+                ArquivoDAO.escrever(0, "InsertionSort", resultados);
                 request.setAttribute("resultadoLeitura", resultados);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
                 dispatcher.forward(request, response);
@@ -120,7 +120,7 @@ public class GetCenario3Action implements Action {
                         contadorLeitura++;
                     }
                 }
-                ArquivoDAO.escrever(8, resultados);
+                ArquivoDAO.escrever(0, "HeapSort", resultados);
                 request.setAttribute("resultadoLeitura", resultados);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
                 dispatcher.forward(request, response);
@@ -145,89 +145,14 @@ public class GetCenario3Action implements Action {
                         contadorLeitura++;
                     }
                 }
-                ArquivoDAO.escrever(9, resultados);
+                ArquivoDAO.escrever(0, "SelectionSort", resultados);
                 request.setAttribute("resultadoLeitura", resultados);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
                 dispatcher.forward(request, response);
                 break;
             }
             case 6: {
-                Integer[] quantidadeLeitura = ArquivoDAO.getInstance();
-                Resultado[] resultados = new Resultado[30];
-                Integer contadorLeitura = 0;
-                for (int i = 1; i < quantidadeLeitura.length; i++) {
-                    for (int j = 0; j < 5; j++) {
-                        GastoDAO.shuffle();
-                        Integer[] analise = new Integer[quantidadeLeitura[i]];
-                        for (int k = 0; k < quantidadeLeitura[i]; k++) {
-                            analise[k] = GastoDAO.getInstance().get(k).getReceipt_value();
-                        }
-                        InsertionSort insertion = new InsertionSort();
-                        Resultado resultado = new Resultado();
-                        insertion.ordena(analise, resultado);
-                        resultados[contadorLeitura] = resultado;
-                        System.out.println(contadorLeitura);
-                        contadorLeitura++;
-                    }
-                }
-                ArquivoDAO.escrever(7, resultados);
-                quantidadeLeitura = ArquivoDAO.getInstance();
-                resultados = new Resultado[30];
-                contadorLeitura = 0;
-                for (int i = 1; i < quantidadeLeitura.length; i++) {
-                    for (int j = 0; j < 5; j++) {
-                        GastoDAO.shuffle();
-                        Integer[] analise = new Integer[quantidadeLeitura[i]];
-                        for (int k = 0; k < quantidadeLeitura[i]; k++) {
-                            analise[k] = GastoDAO.getInstance().get(k).getDeputy_id();
-                        }
-                        TabelaHashEnderecamento tabela = new TabelaHashEnderecamento();
-                        Resultado resultado = new Resultado();
-                        tabela.insereSondagemLinear(analise, resultado);
-                        resultados[contadorLeitura] = resultado;
-                        System.out.println(contadorLeitura);
-                        contadorLeitura++;
-                    }
-                }
-                ArquivoDAO.escrever(10, resultados);
-                quantidadeLeitura = ArquivoDAO.getInstance();
-                resultados = new Resultado[30];
-                contadorLeitura = 0;
-                for (int i = 1; i < quantidadeLeitura.length; i++) {
-                    for (int j = 0; j < 5; j++) {
-                        GastoDAO.shuffle();
-                        Integer[] analise = new Integer[quantidadeLeitura[i]];
-                        for (int k = 0; k < quantidadeLeitura[i]; k++) {
-                            analise[k] = GastoDAO.getInstance().get(k).getDeputy_id();
-                        }
-                        TabelaHashEnderecamento tabela = new TabelaHashEnderecamento();
-                        Resultado resultado = new Resultado();
-                        tabela.insereSondagemQuadratica(analise, resultado);
-                        resultados[contadorLeitura] = resultado;
-                        System.out.println(contadorLeitura);
-                        contadorLeitura++;
-                    }
-                }
-                ArquivoDAO.escrever(11, resultados);
-                quantidadeLeitura = ArquivoDAO.getInstance();
-                resultados = new Resultado[30];
-                contadorLeitura = 0;
-                for (int i = 1; i < quantidadeLeitura.length; i++) {
-                    for (int j = 0; j < 5; j++) {
-                        GastoDAO.shuffle();
-                        Integer[] analise = new Integer[quantidadeLeitura[i]];
-                        for (int k = 0; k < quantidadeLeitura[i]; k++) {
-                            analise[k] = GastoDAO.getInstance().get(k).getDeputy_id();
-                        }
-                        TabelaHashEnderecamento tabela = new TabelaHashEnderecamento();
-                        Resultado resultado = new Resultado();
-                        tabela.insereDuploHash(analise, resultado);
-                        resultados[contadorLeitura] = resultado;
-                        System.out.println(contadorLeitura);
-                        contadorLeitura++;
-                    }
-                }
-                ArquivoDAO.escrever(12, resultados);
+
                 break;
             }
             default: {

@@ -12,6 +12,13 @@ public class Resultado {
         this.tempoGasto = tempoGasto;
     }
 
+    public Resultado (Integer numComparacoes, Long tempoGasto, Long memoriaGasto)
+    {
+        this.numComparacoes = numComparacoes;
+        this.tempoGasto = tempoGasto;
+        this.memoriaGasto = memoriaGasto;
+    }
+    
     public Resultado() {
         this.numComparacoes = 0;
         this.numTrocas = 0;
