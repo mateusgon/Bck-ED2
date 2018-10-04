@@ -14,37 +14,37 @@ Tempo
     </thead>
     <tbody>
         <tr>
-            <th> 1000 </th>
+            <th> 1º tamanho </th>
             <c:forEach var="resultados" items="${resultadoLeitura}" begin="0" end="4">
                 <th>${resultados.tempoGasto} ns</th>
             </c:forEach>
         </tr>
         <tr>
-            <th> 5000 </th>
+            <th> 2º tamanho </th>
             <c:forEach var="resultados" items="${resultadoLeitura}" begin="5" end="9">
                 <th>${resultados.tempoGasto} ns</th>
             </c:forEach>
         </tr>
         <tr>
-            <th> 10000 </th>
+            <th> 3º tamanho </th>
             <c:forEach var="resultados" items="${resultadoLeitura}" begin="10" end="14">
                 <th>${resultados.tempoGasto} ns</th>
             </c:forEach>
         </tr>
         <tr>
-            <th> 50000 </th>
+            <th> 4º tamanho </th>
             <c:forEach var="resultados" items="${resultadoLeitura}" begin="15" end="19">
                 <th>${resultados.tempoGasto} ns</th>
             </c:forEach>
         </tr>
         <tr>
-            <th> 100000 </th>
+            <th> 5º tamanho </th>
             <c:forEach var="resultados" items="${resultadoLeitura}" begin="20" end="24">
                 <th>${resultados.tempoGasto} ns</th>
             </c:forEach>
         </tr>
         <tr>
-            <th> 500000 </th>
+            <th> 6º tamanho </th>
             <c:forEach var="resultados" items="${resultadoLeitura}" begin="25" end="29">
                 <th>${resultados.tempoGasto} ns</th>
             </c:forEach>
@@ -65,37 +65,37 @@ Memória
     </thead>
     <tbody>
         <tr>
-            <th> 1000 </th>
+            <th> 1º tamanho </th>
             <c:forEach var="resultados" items="${resultadoLeitura}" begin="0" end="4">
                 <th>${resultados.memoriaGasto}</th>
             </c:forEach>
         </tr>
         <tr>
-            <th> 5000 </th>
+            <th> 2º tamanho </th>
             <c:forEach var="resultados" items="${resultadoLeitura}" begin="5" end="9">
                 <th>${resultados.memoriaGasto}</th>
             </c:forEach>
         </tr>
         <tr>
-            <th> 10000 </th>
+            <th> 3º tamanho </th>
             <c:forEach var="resultados" items="${resultadoLeitura}" begin="10" end="14">
                 <th>${resultados.memoriaGasto}</th>
             </c:forEach>
         </tr>
         <tr>
-            <th> 50000 </th>
+            <th> 4º tamanho </th>
             <c:forEach var="resultados" items="${resultadoLeitura}" begin="15" end="19">
                 <th>${resultados.memoriaGasto}</th>
             </c:forEach>
         </tr>
         <tr>
-            <th> 100000 </th>
+            <th> 5º tamanho </th>
             <c:forEach var="resultados" items="${resultadoLeitura}" begin="20" end="24">
                 <th>${resultados.memoriaGasto}</th>
             </c:forEach>
         </tr>
         <tr>
-            <th> 500000 </th>
+            <th> 6º tamanho </th>
             <c:forEach var="resultados" items="${resultadoLeitura}" begin="25" end="29">
                 <th>${resultados.memoriaGasto}</th>
             </c:forEach>
@@ -116,37 +116,37 @@ Número de comparações
     </thead>
     <tbody>
         <tr>
-            <th> 1000 </th>
+            <th> 1º tamanho </th>
             <c:forEach var="resultados" items="${resultadoLeitura}" begin="0" end="4">
                 <th>${resultados.numComparacoes}</th>
             </c:forEach>
         </tr>
         <tr>
-            <th> 5000 </th>
+            <th> 2º tamanho </th>
             <c:forEach var="resultados" items="${resultadoLeitura}" begin="5" end="9">
                 <th>${resultados.numComparacoes}</th>
             </c:forEach>
         </tr>
         <tr>
-            <th> 10000 </th>
+            <th> 3º tamanho </th>
             <c:forEach var="resultados" items="${resultadoLeitura}" begin="10" end="14">
                 <th>${resultados.numComparacoes}</th>
             </c:forEach>
         </tr>
         <tr>
-            <th> 50000 </th>
+            <th> 4º tamanho </th>
             <c:forEach var="resultados" items="${resultadoLeitura}" begin="15" end="19">
                 <th>${resultados.numComparacoes}</th>
             </c:forEach>
         </tr>
         <tr>
-            <th> 100000 </th>
+            <th> 5º tamanho </th>
             <c:forEach var="resultados" items="${resultadoLeitura}" begin="20" end="24">
                 <th>${resultados.numComparacoes}</th>
             </c:forEach>
         </tr>
         <tr>
-            <th> 500000 </th>
+            <th> 6º tamanho </th>
             <c:forEach var="resultados" items="${resultadoLeitura}" begin="25" end="29">
                 <th>${resultados.numComparacoes}</th>
             </c:forEach>

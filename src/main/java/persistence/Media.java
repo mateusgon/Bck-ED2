@@ -10,12 +10,12 @@ public class Media {
 
     public List<Resultado> media(Resultado[] resultados) {
         Long mediaTempo;
-        Integer mediaComparacoes;
-        Integer mediaTrocas;
+        Long mediaComparacoes;
+        Long mediaTrocas;
         for (int i = 0; i < 30; i = i + 5) {
             mediaTempo = 0L;
-            mediaComparacoes = 0;
-            mediaTrocas = 0;
+            mediaComparacoes = 0L;
+            mediaTrocas = 0L;
             mediaTempo = mediaTempo + resultados[i].getTempoGasto();
             mediaTempo = mediaTempo + resultados[i + 1].getTempoGasto();
             mediaTempo = mediaTempo + resultados[i + 2].getTempoGasto();
@@ -42,11 +42,11 @@ public class Media {
 
     public List<Resultado> media2(Resultado[] resultados) {
         Long mediaTempo;
-        Integer mediaComparacoes;
+        Long mediaComparacoes;
         Long mediaMemoria;
         for (int i = 0; i < 30; i = i + 5) {
             mediaTempo = 0L;
-            mediaComparacoes = 0;
+            mediaComparacoes = 0L;
             mediaMemoria = 0L;
             mediaTempo = mediaTempo + resultados[i].getTempoGasto();
             mediaTempo = mediaTempo + resultados[i + 1].getTempoGasto();
@@ -66,7 +66,7 @@ public class Media {
             mediaTempo = mediaTempo / 5;
             mediaComparacoes = mediaComparacoes / 5;
             mediaMemoria = mediaMemoria / 5;
-            Resultado resultado = new Resultado(mediaComparacoes, mediaTempo, mediaMemoria);
+            Resultado resultado = new Resultado(mediaComparacoes, mediaTempo, mediaMemoria, 0L);
             this.resultados.add(resultado);
         }
         return this.resultados;

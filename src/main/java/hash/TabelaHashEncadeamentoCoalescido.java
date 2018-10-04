@@ -27,9 +27,7 @@ public class TabelaHashEncadeamentoCoalescido {
     }
 
     public void encadeamentoCoalescido(Integer valor[], Resultado resultado) {
-        Runtime runtime = Runtime.getRuntime();
         long tempoInicial = System.nanoTime();
-        Integer auxUltimaPosicaoVazia = tamanho - 1;
         for (int i = 0; i < valor.length; i++) {
             Integer posicao = funcaoHash(valor[i], resultado);
             if (gastos[posicao].getDeputy_id() == -1) {
@@ -44,10 +42,15 @@ public class TabelaHashEncadeamentoCoalescido {
                         gastos[contador].setDeputy_id(valor[i]);
                         if (gastos[posicao].getProximaPosicaoVetor() == -1) {
                             gastos[posicao].setProximaPosicaoVetor(contador);
+                            resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
                         } else {
-                            gastos[auxUltimaPosicaoVazia].setProximaPosicaoVetor(contador);
+                            Integer auxPosicao = posicao;
+                            while (gastos[auxPosicao].getProximaPosicaoVetor() != -1) {
+                                auxPosicao = gastos[auxPosicao].getProximaPosicaoVetor();
+                                resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
+                            }
+                            gastos[auxPosicao].setProximaPosicaoVetor(contador);
                         }
-                        auxUltimaPosicaoVazia = contador;
                         ultimaPosicaoVazia = contador;
                         trocado = true;
                     }
@@ -55,11 +58,8 @@ public class TabelaHashEncadeamentoCoalescido {
                 }
             }
         }
-        for (int i = 0; i < tamanho && tamanho == 1000; i++) {
-            System.out.println(i + "-" + gastos[i].getDeputy_id());
-            System.out.println("Aponta para" + gastos[i].getProximaPosicaoVetor());
-        }
         resultado.setTempoGasto(System.nanoTime() - tempoInicial);
+        Runtime runtime = Runtime.getRuntime();
         runtime.gc();
         long memory = runtime.totalMemory() - runtime.freeMemory();
         resultado.setMemoriaGasto(memory);

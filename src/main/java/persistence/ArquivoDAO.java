@@ -64,10 +64,12 @@ public class ArquivoDAO {
                 conexao.write("Media,Tempo gasto,Número de Trocas,Número de comparações");
                 conexao.newLine();
                 Media m = new Media();
+                Integer contador = 0;
                 List<Resultado> resultados = m.media(resultado);
                 for (Resultado resultado1 : resultados) {
-                    conexao.write("Media tamanho " + 0 + "," + resultado1.getTempoGasto() + "," + resultado1.getNumTrocas() + "," + resultado1.getNumComparacoes());
+                    conexao.write("Media tamanho " + contador + "," + resultado1.getTempoGasto() + "," + resultado1.getNumTrocas() + "," + resultado1.getNumComparacoes());
                     conexao.newLine();
+                    contador++;
                 }
                 conexao.close();
             } else {

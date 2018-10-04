@@ -27,7 +27,6 @@ public class TabelaHashEnderecamento {
     }
 
     public void insereSondagemLinear(Integer valor[], Resultado resultado) {
-        Runtime runtime = Runtime.getRuntime();
         long tempoInicial = System.nanoTime();
         for (int i = 0; i < valor.length; i++) {
             Integer posicao = funcaoHash(valor[i], resultado);
@@ -53,6 +52,7 @@ public class TabelaHashEnderecamento {
             }
         }
         resultado.setTempoGasto(System.nanoTime() - tempoInicial);
+        Runtime runtime = Runtime.getRuntime();
         runtime.gc();
         long memory = runtime.totalMemory() - runtime.freeMemory();
         resultado.setMemoriaGasto(memory);
@@ -67,7 +67,6 @@ public class TabelaHashEnderecamento {
     }
 
     public void insereSondagemQuadratica(Integer valor[], Resultado resultado) {
-        Runtime runtime = Runtime.getRuntime();
         long tempoInicial = System.nanoTime();
         for (int i = 0; i < valor.length; i++) {
             Integer posicao = funcaoHash(valor[i], resultado);
@@ -93,13 +92,14 @@ public class TabelaHashEnderecamento {
             }
         }
         resultado.setTempoGasto(System.nanoTime() - tempoInicial);
+        Runtime runtime = Runtime.getRuntime();
         runtime.gc();
         long memory = runtime.totalMemory() - runtime.freeMemory();
         resultado.setMemoriaGasto(memory);
     }
 
     public Integer SondagemQuadratica(Integer posicao, Integer quantidadeColisao) {
-        Integer indice = posicao + 2 * quantidadeColisao + 1 * (int) Math.pow(quantidadeColisao, 2);
+        Integer indice = (posicao + 2 * quantidadeColisao + 1 * (int) Math.pow(quantidadeColisao, 2))%999983;
         if (indice >= (gastos.length) || indice <= 0) {
             return -1;
         }
@@ -108,7 +108,6 @@ public class TabelaHashEnderecamento {
     }
 
     public void insereDuploHash(Integer valor[], Resultado resultado) {
-        Runtime runtime = Runtime.getRuntime();
         long tempoInicial = System.nanoTime();
         for (int i = 0; i < valor.length; i++) {
             Integer posicao = funcaoHash(valor[i], resultado);
@@ -135,13 +134,14 @@ public class TabelaHashEnderecamento {
             }
         }
         resultado.setTempoGasto(System.nanoTime() - tempoInicial);
+        Runtime runtime = Runtime.getRuntime();
         runtime.gc();
         long memory = runtime.totalMemory() - runtime.freeMemory();
         resultado.setMemoriaGasto(memory);
     }
 
     public Integer DuploHash(Integer posicao, Integer posicao2, Integer quantidadeColisao) {
-        Integer indice = posicao + posicao2 * quantidadeColisao;
+        Integer indice = (posicao + posicao2 * quantidadeColisao)%999983;
         if (indice >= (gastos.length) || indice <= 0) {
             return -1;
         }

@@ -25,13 +25,13 @@ public class TabelaHashEncadeamentoSeparado {
     }
 
     public void EncadeamentoSeparado(Integer valor[], Resultado resultado) {
-        Runtime runtime = Runtime.getRuntime();
         long tempoInicial = System.nanoTime();
         for (int i = 0; i < valor.length; i++) {
             Integer indice = funcaoHash(valor[i], resultado);
             gastos[indice].InserirListaEncadeada(valor[i], resultado);
         }
         resultado.setTempoGasto(System.nanoTime() - tempoInicial);
+        Runtime runtime = Runtime.getRuntime();
         runtime.gc();
         long memory = runtime.totalMemory() - runtime.freeMemory();
         resultado.setMemoriaGasto(memory);
