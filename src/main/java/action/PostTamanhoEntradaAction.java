@@ -21,7 +21,7 @@ public class PostTamanhoEntradaAction implements Action { // Responsável por pr
                 valores[i] = Integer.parseInt(tamanhos[i - 1]);
             }
             ArquivoDAO.getInstance(valores); // Armazena a entrada do usuário
-            RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/escolhaItem.jsp");
+            RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/item1.jsp");
             dispacher.forward(request, response);
         } catch (Exception ex) {
             response.sendRedirect("erro.html");

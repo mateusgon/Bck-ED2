@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import persistence.ArquivoDAO;
+import persistence.GastoDAO;
 
 public class GetInicialAction implements Action { // Responsável por averiguar se o usuário escolheu o Entrada.txt ou preferiu entrar com os dados.
 
@@ -13,6 +14,7 @@ public class GetInicialAction implements Action { // Responsável por averiguar 
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Integer identificador = Integer.parseInt(request.getParameter("id"));
         if (identificador == 1) {
+            GastoDAO.getInstance();
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/inicial.jsp");
             dispatcher.forward(request, response);
         }

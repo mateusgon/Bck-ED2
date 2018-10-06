@@ -30,29 +30,27 @@ public class TabelaHashItem2 {
         Integer indice = funcaoHashDeputado(gasto.getDeputy_id());
         return gastosDeputados[indice].inserirListaEncadeada(gasto);
     }
-    
-    public int funcaoHashPartido(String nomePartido)
-    {
-        return 0;
+
+    public int funcaoHashPartido(String nomePartido) {
+        Integer indice = nomePartido.charAt(nomePartido.length() / 2) % tamanho;
+        while (indice > tamanho) {
+            indice = indice - tamanho;
+        }
+        return indice;
     }
-    
-    public Integer EncadeamentoSeparadoPartidos(Gasto gasto)
-    {
+
+    public Integer EncadeamentoSeparadoPartidos(Gasto gasto) {
         Integer indice = funcaoHashPartido(gasto.getPolitical_party());
-        return 0;//gastosPartidos;
+        return gastosPartidos[indice].inserirListaEncadeada(gasto);
     }
-    
-    public Integer buscarOrdenarDeputados (Integer contadorDeputados)
-    {
+
+    public NoListaEncadeadaDeputadoItem2[] buscarOrdenarDeputados(Integer contadorDeputados) {
         Integer contadorAuxiliar = 0;
-        NoListaEncadeadaDeputadoItem2 [] gastos = new NoListaEncadeadaDeputadoItem2[contadorDeputados];
-        for (int i = 0; i < tamanho; i++)
-        {
-            if (gastosDeputados[i].getPrimeiro() != null)
-            {
+        NoListaEncadeadaDeputadoItem2[] gastos = new NoListaEncadeadaDeputadoItem2[contadorDeputados];
+        for (int i = 0; i < tamanho; i++) {
+            if (gastosDeputados[i].getPrimeiro() != null) {
                 NoListaEncadeadaDeputadoItem2 noAux = gastosDeputados[i].getPrimeiro();
-                while (noAux != null)
-                {
+                while (noAux != null) {
                     gastos[contadorAuxiliar] = noAux;
                     contadorAuxiliar++;
                     noAux = noAux.getProximo();
@@ -61,10 +59,24 @@ public class TabelaHashItem2 {
         }
         QuickSort quick = new QuickSort();
         quick.ordenaInteiroQuickSortInsertionItem2(gastos, 100);
-        for (int i = 0; i < contadorAuxiliar; i++)
-        {
-            System.out.println("ID: " + gastos[i].getDeputy_id() + " Valor: " + gastos[i].getValor());
+        return gastos;
+    }
+
+    public NoListaEncadeadaPartidoItem2[] buscarOrdenarPartidos(Integer contadorPartidos) {
+        Integer contadorAuxiliar = 0;
+        NoListaEncadeadaPartidoItem2[] gastos = new NoListaEncadeadaPartidoItem2[contadorPartidos];
+        for (int i = 0; i < tamanho; i++) {
+            if (gastosPartidos[i].getPrimeiro() != null) {
+                NoListaEncadeadaPartidoItem2 noAux = gastosPartidos[i].getPrimeiro();
+                while (noAux != null) {
+                    gastos[contadorAuxiliar] = noAux;
+                    contadorAuxiliar++;
+                    noAux = noAux.getProximo();
+                }
+            }
         }
-        return 0;
+        QuickSort quick = new QuickSort();
+        quick.ordenaInteiroQuickSortInsertionPartidoItem2(gastos, 100);
+        return gastos;
     }
 }

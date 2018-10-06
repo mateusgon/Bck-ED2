@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 // Responsável por receber as requisições e distribuir para o action correto. Funcinando no padrão MVC.
-@WebServlet(urlPatterns = {"/index.html", "/inicial.html", "/item.html", "/erro.html", "/sucesso.html", "/cenario1.html", "/cenario2.html", "/cenario3.html", "/cenario4.html", "/item2.html"})
+@WebServlet(urlPatterns = {"/index.html", "/inicial.html", "/item.html", "/tamanhoentrada.html", "/erro.html", "/sucesso.html", "/cenario1.html", "/cenario2.html", "/cenario3.html", "/cenario4.html"})
 public class ControlServlet extends HttpServlet {
 
     @Override
@@ -23,6 +23,7 @@ public class ControlServlet extends HttpServlet {
         rotas.put("/index.html", "action.GetIndexAction");
         rotas.put("/inicial.html", "action.GetInicialAction");
         rotas.put("/item.html", "action.GetItemAction");
+        rotas.put("/tamanhoentrada.html", "action.GetTamanhoEntradaAction");
         rotas.put("/cenario1.html", "action.GetCenario1Action");
         rotas.put("/cenario2.html", "action.GetCenario2Action");
         rotas.put("/cenario3.html", "action.GetCenario3Action");
@@ -43,6 +44,7 @@ public class ControlServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, String> rotas = new HashMap<>(); // Recebe todas as rotas de processamento do Post
         rotas.put("/inicial.html", "action.PostInicialAction");
+        rotas.put("/tamanhoentrada.html", "action.PostTamanhoEntradaAction");
         String clazzName = rotas.get(request.getServletPath());
         try {
             Action action = (Action) Class.forName(clazzName).newInstance();

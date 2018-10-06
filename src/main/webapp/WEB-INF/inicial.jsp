@@ -16,7 +16,7 @@
         <div class="col-sm-6" >
             <div class="card">
                 <div class="card-body">
-                    <a href="inicial.html?id=1">
+                    <a href="tamanhoentrada.html">
                         <h5 class="card-title">Informar os dados no lugar do Entrada.txt</h5>
                         <i class="material-icons"  style="font-size:100px;">folder</i> 
                     </a>

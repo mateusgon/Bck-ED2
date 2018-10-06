@@ -18,7 +18,7 @@ public class ListaEncadeadaDeputadoItem2 {
     public Integer inserirListaEncadeada(Gasto gasto) {
 
         if (primeiro == null) {
-            NoListaEncadeadaDeputadoItem2 no = new NoListaEncadeadaDeputadoItem2(gasto.getDeputy_name(), gasto.getDeputy_id(), gasto.getReceipt_value(), null);
+            NoListaEncadeadaDeputadoItem2 no = new NoListaEncadeadaDeputadoItem2(gasto.getDeputy_name(),gasto.getPolitical_party(), gasto.getDeputy_id(), gasto.getReceipt_value(), null);
             primeiro = no;
             return 1;
         } else {
@@ -36,7 +36,7 @@ public class ListaEncadeadaDeputadoItem2 {
                 return 0;
             }
             if (aux.getProximo() == null) {
-                NoListaEncadeadaDeputadoItem2 no = new NoListaEncadeadaDeputadoItem2(gasto.getDeputy_name(), gasto.getDeputy_id(), gasto.getReceipt_value(), null);
+                NoListaEncadeadaDeputadoItem2 no = new NoListaEncadeadaDeputadoItem2(gasto.getDeputy_name(),gasto.getPolitical_party(), gasto.getDeputy_id(), gasto.getReceipt_value(), null);
                 aux.setProximo(no);
                 return 1;
             }

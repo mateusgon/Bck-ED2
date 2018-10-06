@@ -53,9 +53,11 @@ public class GastoDAO {
         Collections.shuffle(gastos);
     }
 
-    public static Integer getInstanceHash(TabelaHashItem2 tabela) {
+    public static Integer [] getInstanceHash(TabelaHashItem2 tabela) {
         Integer contador = 0;
-        Integer contadorDeputados = 0;
+        Integer contadorDeputadosEPartidos[] = new Integer[2];
+        contadorDeputadosEPartidos[0] = 0;
+        contadorDeputadosEPartidos[1] = 0;
         String diretorioArquivo = "C:\\Users\\Mateu\\Downloads\\deputies_dataset_tratado.csv";
         BufferedReader leitor = null;
         String delimitador = ";";
@@ -66,10 +68,10 @@ public class GastoDAO {
             while ((linhaDeLeitura = leitor.readLine()) != null) {
                 String[] gasto = linhaDeLeitura.split(delimitador);
                 Integer deputadoId = Integer.parseInt(gasto[2]);
-                Integer valor;
-                valor = Integer.parseInt(gasto[9]);
+                Integer valor = Integer.parseInt(gasto[9]);
                 Gasto gasto1 = new Gasto(gasto[0], gasto[1], deputadoId, gasto[3], gasto[4], gasto[5], gasto[6], gasto[7], gasto[8], valor);
-                contadorDeputados = contadorDeputados + tabela.EncadeamentoSeparadoDeputados(gasto1);
+                contadorDeputadosEPartidos[1] = contadorDeputadosEPartidos[1] + tabela.EncadeamentoSeparadoPartidos(gasto1);
+                contadorDeputadosEPartidos[0] = contadorDeputadosEPartidos[0] + tabela.EncadeamentoSeparadoDeputados(gasto1);
             }
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
@@ -82,6 +84,6 @@ public class GastoDAO {
                 }
             }
         }
-        return contadorDeputados;
+        return contadorDeputadosEPartidos;
     }
 }

@@ -3,6 +3,7 @@ package hash;
 public class NoListaEncadeadaDeputadoItem2 {
 
     private String nomeDeputado;
+    private String partido;
     private Integer deputy_id;
     private Integer valor;
     private NoListaEncadeadaDeputadoItem2 proximo;
@@ -14,11 +15,12 @@ public class NoListaEncadeadaDeputadoItem2 {
         this.proximo = null;
     }
 
-    public NoListaEncadeadaDeputadoItem2(String nomeDeputado, Integer deputy_id, Integer valor, NoListaEncadeadaDeputadoItem2 proximo) {
+    public NoListaEncadeadaDeputadoItem2(String nomeDeputado, String partido, Integer deputy_id, Integer valor, NoListaEncadeadaDeputadoItem2 proximo) {
         this.nomeDeputado = nomeDeputado;
         this.deputy_id = deputy_id;
         this.valor = valor;
         this.proximo = proximo;
+        this.partido = partido;
     }
 
     public NoListaEncadeadaDeputadoItem2 getProximo() {
@@ -43,6 +45,22 @@ public class NoListaEncadeadaDeputadoItem2 {
 
     public void setValor(Integer valor) {
         this.valor = valor;
+    }
+
+    public String getNomeDeputado() {
+        return nomeDeputado;
+    }
+
+    public void setNomeDeputado(String nomeDeputado) {
+        this.nomeDeputado = nomeDeputado;
+    }
+
+    public String getPartido() {
+        return partido;
+    }
+
+    public void setPartido(String partido) {
+        this.partido = partido;
     }
 
 }
