@@ -4,11 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Resultado;
 
+/**
+ * Classe responsável por realizar o cálculo da média das 30 sementes diferentes de 6 tamanhos estabelecidos
+ */
+
 public class Media {
 
     List<Resultado> resultados = new ArrayList<>();
 
-    public List<Resultado> media(Resultado[] resultados) {
+    public List<Resultado> media(Resultado[] resultados) { // Média do Cenário 3
         Long mediaTempo;
         Long mediaComparacoes;
         Long mediaTrocas;
@@ -40,7 +44,7 @@ public class Media {
         return this.resultados;
     }
 
-    public List<Resultado> media2(Resultado[] resultados) {
+    public List<Resultado> media2(Resultado[] resultados) { // Média do Cenário 4
         Long mediaTempo;
         Long mediaComparacoes;
         Long mediaMemoria;

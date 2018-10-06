@@ -1,5 +1,10 @@
 package ordenacao;
 
+/**
+ * Classe responsável por implementar o meuSort, no caso escolhido, estamos tratando do SelectionSort
+ * O funcionamento do algoritmo será detalhado no relatório
+ */
+
 import model.Resultado;
 
 public class SelectionSort {

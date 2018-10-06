@@ -2,6 +2,12 @@ package ordenacao;
 
 import model.Resultado;
 
+/**
+ * Estrutura de dados para que seja realizado o HeapSort.
+ * Sua implementação estará sendo explicada no relatório.
+ * Possui como atributo um vetor de gastos e um tamanho que é o tamanho do vetor de gastos
+ */
+
 public class Heap {
 
     Integer gastos[];

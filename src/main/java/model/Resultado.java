@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * Modelo responsável por guardar as métricas que devem ser coletadas durante o tempo de execução
+ * É composto por 4 atributos, número de comparações, número de trocas, tempo gasto e a memória que foi gasta
+ */
+
 public class Resultado {
     private Long numComparacoes;
     private Long numTrocas;

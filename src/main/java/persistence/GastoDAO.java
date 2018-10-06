@@ -9,6 +9,11 @@ import java.util.Collections;
 import java.util.List;
 import model.Gasto;
 
+/**
+ * Classe responsável por realizar a leitura do deputies_dataset_tratado.csv
+ * A função getInstance() sem parâmetros é responsável pelo Item 1. A outra função getInstance(TabelaHashItem2) é responsável pelo Item2
+ */
+
 public class GastoDAO {
 
     private static List<Gasto> gastos;
@@ -35,13 +40,13 @@ public class GastoDAO {
                     contador++;
                 }
             } catch (Exception ex) {
-                System.err.println(ex.getMessage());
+
             } finally {
                 if (leitor != null) {
                     try {
                         leitor.close();
                     } catch (IOException e) {
-                        e.printStackTrace();
+
                     }
                 }
             }
@@ -49,7 +54,7 @@ public class GastoDAO {
         return gastos;
     }
 
-    public static void shuffle() {
+    public static void shuffle() { 
         Collections.shuffle(gastos);
     }
 

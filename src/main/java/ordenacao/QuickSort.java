@@ -6,6 +6,11 @@ import java.util.Random;
 import model.Gasto;
 import model.Resultado;
 
+/**
+ * Uma das maiores classes do sistema, ela é responsável por implementar 3 cenários do Item 1 e a ordenação dos gastos dos deputados e dos partidos.
+ * A forma como foi implementado o QuickSort será detalhado no relatório
+ */
+
 public class QuickSort {
 
 //QuickSort utilizado para o cenário 1    
@@ -282,6 +287,7 @@ public class QuickSort {
 
     }
 
+//QuickSort para os Item 2
     public void ordenaInteiroQuickSortInsertion(Integer vetor[], Resultado resultado, int numAtivarInsertion) {
         long tempoInicial = System.nanoTime();
         quickSortInteiroInsertionSort(vetor, 0, vetor.length, resultado, numAtivarInsertion);

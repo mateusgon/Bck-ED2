@@ -5,15 +5,18 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 import model.Resultado;
 
-public class ArquivoDAO {
+/**
+ * Classe responsável por realzar a leitura do Entrada.txt e a escrita das métricas coletadas de execução
+ */
+
+public class ArquivoDAO { 
 
     private static Integer[] leituras;
 
-    public static Integer[] getInstance() throws FileNotFoundException {
+    public static Integer[] getInstance() throws FileNotFoundException { // Realiza a leitura do Entrada.txt
         Scanner input = new Scanner(new FileReader("C:\\Users\\Mateu\\Documents\\NetBeansProjects\\DCC012---Trabalho01\\entrada.txt"));
         try {
             Integer valor;
@@ -30,17 +33,18 @@ public class ArquivoDAO {
                 }
             }
         } catch (Exception ex) {
+            
         }
         input.close();
         return leituras;
     }
 
-    public static Integer[] getInstance(Integer[] valores) throws FileNotFoundException {
+    public static Integer[] getInstance(Integer[] valores) throws FileNotFoundException { // Responsável por realizar a leitura da entrada que o usuário informou e substitui o Entrada.txt
         leituras = valores;
         return leituras;
     }
 
-    public static void escrever(Integer codigo, String nome, Resultado[] resultado) {
+    public static void escrever(Integer codigo, String nome, Resultado[] resultado) { // Função responsável por escrever a saída das execuções dos cenário do item 1
         try {
             if (codigo == 0) {
                 FileWriter fw = new FileWriter("C:\\Users\\Mateu\\Desktop\\" + nome + ".txt", false);
@@ -90,7 +94,7 @@ public class ArquivoDAO {
                 conexao.close();
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            
         }
     }
 }

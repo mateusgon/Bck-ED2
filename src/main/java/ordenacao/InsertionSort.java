@@ -2,6 +2,11 @@ package ordenacao;
 
 import model.Resultado;
 
+/**
+ * Classe responsável por implementar o InsertionSort
+ * O funcionamento do InsertionSort será explicado em detalhes no relatório
+ */
+
 public class InsertionSort {
 
     public void ordena(Integer vetor[], Resultado resultado) {

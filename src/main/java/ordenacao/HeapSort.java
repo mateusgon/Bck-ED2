@@ -2,6 +2,11 @@ package ordenacao;
 
 import model.Resultado;
 
+/**
+ * Classe responsável por ordenar a heap
+ * Estará sendo explicada em detalhes no relatório
+ */
+
 public class HeapSort {
 
     public void ordena(Integer vetor[], Integer n, Resultado resultado) {

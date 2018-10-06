@@ -2,6 +2,11 @@ package ordenacao;
 
 import model.Resultado;
 
+/**
+ * Classe responsável por implementar o MergeSort
+ * O seu funcionamento e como foi feito será explicado em detalhes no relatório.
+ */
+
 public class MergeSort {
 
     public void ordena(Integer vetor[], Resultado resultado) {

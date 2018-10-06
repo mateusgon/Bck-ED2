@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * Modelo para guardar os gastos em tempo de execução. 
+ * Atributos iguais aos da tabela fornecida
+ */
+
 public class Gasto {
     private String bugged_date;
     private String receipt_date;
