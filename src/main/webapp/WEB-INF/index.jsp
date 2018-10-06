@@ -6,8 +6,8 @@
         <div class="col-sm-6" >
             <div class="card">
                 <div class="card-body">
-                    <a href="inicial.html?id=0">
-                        <h5 class="card-title">Utilizar dados do Entrada.txt</h5>
+                    <a href="inicial.html?id=1">
+                        <h5 class="card-title">Item 1 (Algoritmos de Ordenação e Hashing) </h5>
                         <i class="material-icons"  style="font-size:100px;">folder</i> 
                     </a>
                 </div>
@@ -16,8 +16,8 @@
         <div class="col-sm-6" >
             <div class="card">
                 <div class="card-body">
-                    <a href="inicial.html?id=1">
-                        <h5 class="card-title">Informar os dados no lugar do Entrada.txt</h5>
+                    <a href="inicial.html?id=2">
+                        <h5 class="card-title">Item 2 (Implementação do Item 2 do trabalho) </h5>
                         <i class="material-icons"  style="font-size:100px;">folder</i> 
                     </a>
                 </div>
@@ -25,4 +25,4 @@
         </div>
     </div>
 </div>
-    <%@include file="jspf/rodape.jspf" %>
+<%@include file="jspf/rodape.jspf" %>

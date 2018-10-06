@@ -22,12 +22,11 @@ public class ControlServlet extends HttpServlet {
         Map<String, String> rotas = new HashMap<>(); // Recebe todas as rotas que o sistema web poderá fazer
         rotas.put("/index.html", "action.GetIndexAction");
         rotas.put("/inicial.html", "action.GetInicialAction");
-        rotas.put("/item.html", "action.GetEscolhaItemAction");
+        rotas.put("/item.html", "action.GetItemAction");
         rotas.put("/cenario1.html", "action.GetCenario1Action");
         rotas.put("/cenario2.html", "action.GetCenario2Action");
         rotas.put("/cenario3.html", "action.GetCenario3Action");
         rotas.put("/cenario4.html", "action.GetCenario4Action");
-        rotas.put("/item2.html", "action.GetItem2Action");
         rotas.put("/sucesso.html", "action.GetSucessoAction");
         rotas.put("/erro.html", "action.GetErroAction");
         String clazzName = rotas.get(request.getServletPath());

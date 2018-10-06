@@ -1,13 +1,28 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="jspf/cabecalho.jspf" %>
-        <div class="container text-center">
-            <form method="post">
-                <div class="form-group row">
-                    <label>Tamanho dos elementos (Digite separado por vírgula e sem espaço, devem ser 6 números) </label>
-                    <textarea class="form-control" name="quantidadeElementos" rows="3"></textarea>
-                    <input type="submit" value="Enviar" class="btn btn-success"/>
-                    <input type="reset" class="btn btn-secondary"/>
+<div class="container text-center">
+    <h5>DCC012 - Estrutura de Dados 2</h5>
+    <p>Análise do base de dados: deputies_dataset</p>
+    <div class="row" style="margin-top: 1.5cm">
+        <div class="col-sm-6" >
+            <div class="card">
+                <div class="card-body">
+                    <a href="item.html?id=1">
+                        <h5 class="card-title">Utilizar dados do Entrada.txt</h5>
+                        <i class="material-icons"  style="font-size:100px;">folder</i> 
+                    </a>
                 </div>
-            </form>
+            </div>
         </div>
+        <div class="col-sm-6" >
+            <div class="card">
+                <div class="card-body">
+                    <a href="inicial.html?id=1">
+                        <h5 class="card-title">Informar os dados no lugar do Entrada.txt</h5>
+                        <i class="material-icons"  style="font-size:100px;">folder</i> 
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <%@include file="jspf/rodape.jspf" %>

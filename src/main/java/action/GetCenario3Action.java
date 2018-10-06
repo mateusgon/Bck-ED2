@@ -166,6 +166,9 @@ public class GetCenario3Action implements Action { // Implementa Action e é res
                         Integer[] analise4 = new Integer[quantidadeLeitura[i]];
                         Integer[] analise5 = new Integer[quantidadeLeitura[i]];
                         for (int k = 0; k < quantidadeLeitura[i]; k++) {
+                            analise[k] = GastoDAO.getInstance().get(k).getReceipt_value();
+                            analise2[k] = GastoDAO.getInstance().get(k).getReceipt_value();
+                            analise3[k] = GastoDAO.getInstance().get(k).getReceipt_value();
                             analise4[k] = GastoDAO.getInstance().get(k).getReceipt_value();
                             analise5[k] = GastoDAO.getInstance().get(k).getReceipt_value();
                         }

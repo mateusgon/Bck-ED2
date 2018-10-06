@@ -4,14 +4,14 @@ import model.Resultado;
 
 public class TabelaHashEncadeamentoSeparado {
 
-    ListaEncadeada gastos[];
+    ListaEncadeadaCenario4 gastos[];
     Integer tamanho;
 
     public TabelaHashEncadeamentoSeparado(Integer tamanho) {
-        gastos = new ListaEncadeada[tamanho];
+        gastos = new ListaEncadeadaCenario4[tamanho];
         this.tamanho = tamanho;
         for (int i = 0; i < gastos.length; i++) {
-            gastos[i] = new ListaEncadeada();
+            gastos[i] = new ListaEncadeadaCenario4();
         }
     }
 

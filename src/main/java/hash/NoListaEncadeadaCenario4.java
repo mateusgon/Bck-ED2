@@ -1,25 +1,25 @@
 package hash;
 
-public class NoListaEncadeada {
+public class NoListaEncadeadaCenario4 {
 
     private Integer deputy_id;
-    private NoListaEncadeada proximo;
+    private NoListaEncadeadaCenario4 proximo;
 
-    public NoListaEncadeada() {
+    public NoListaEncadeadaCenario4() {
         this.deputy_id = -1;
         this.proximo = null;
     }
 
-    public NoListaEncadeada(Integer deputy_id, NoListaEncadeada proximo) {
+    public NoListaEncadeadaCenario4(Integer deputy_id, NoListaEncadeadaCenario4 proximo) {
         this.deputy_id = deputy_id;
         this.proximo = proximo;
     }
 
-    public NoListaEncadeada getProximo() {
+    public NoListaEncadeadaCenario4 getProximo() {
         return proximo;
     }
 
-    public void setProximo(NoListaEncadeada proximo) {
+    public void setProximo(NoListaEncadeadaCenario4 proximo) {
         this.proximo = proximo;
     }
 
