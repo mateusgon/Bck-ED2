@@ -11,21 +11,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import persistence.GastoDAO;
 
-public class PostInicialAction implements Action { // Responsável por processar a entrada do usuário que substituirá o Emtrada.txt
+public class PostInicialAction implements Action { // Responsável por processar a entrada de quantos dados serão exibidos na tela pelo Item 2
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //try {
-            Integer numero = Integer.parseInt(request.getParameter("quantidadeElementos")); // Os elementos e os números são recebidos em formato de texto
-            TabelaHashItem2 hash = new TabelaHashItem2();
-            Integer quantidadeDeputados[] = GastoDAO.getInstanceHash(hash);
-            NoListaEncadeadaDeputadoItem2[] gastos = hash.buscarOrdenarDeputados(quantidadeDeputados[0]);
-            NoListaEncadeadaPartidoItem2[] gastos2 = hash.buscarOrdenarPartidos(quantidadeDeputados[1]);
+        try {
+            Integer numero = Integer.parseInt(request.getParameter("quantidadeElementos")); // Recebe a quantidade de elementos
+            TabelaHashItem2 hash = new TabelaHashItem2(); // Instancia a tabela hash do item 2
+            Integer quantidadeDeputadosEPartidos[] = GastoDAO.getInstanceHash(hash); // Insere na tabela hash os elementos
+            NoListaEncadeadaDeputadoItem2[] gastos = hash.buscarOrdenarDeputados(quantidadeDeputadosEPartidos[0]); // Ordena os gastos dos deputados na tabela hash
+            NoListaEncadeadaPartidoItem2[] gastos2 = hash.buscarOrdenarPartidos(quantidadeDeputadosEPartidos[1]); // Ordena os gastos dos partidos na tabela hash
             ArrayList<NoListaEncadeadaDeputadoItem2> maisGastaram = new ArrayList<>();
             ArrayList<NoListaEncadeadaPartidoItem2> maisGastaramPartido = new ArrayList<>();
             ArrayList<NoListaEncadeadaDeputadoItem2> menosGastaram = new ArrayList<>();
             ArrayList<NoListaEncadeadaPartidoItem2> menosGastaramPartido = new ArrayList<>();
-            for (int i = 0; i < numero; i++) {
+            for (int i = 0; i < numero; i++) { // Os três "for" são responsáveis por preencherem os deputados e os partidos que mais e menos gastaram
                 menosGastaram.add(gastos[i]);
                 menosGastaramPartido.add(gastos2[i]);
             }
@@ -41,9 +41,9 @@ public class PostInicialAction implements Action { // Responsável por processar
             request.setAttribute("pMenoresGastos", menosGastaramPartido);
             RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/resultadoItem2.jsp");
             dispacher.forward(request, response);
-        //} catch (Exception ex) {
-        //    response.sendRedirect("erro.html");
-        //}
+        } catch (Exception ex) {
+            response.sendRedirect("erro.html");
+        }
     }
 
 }

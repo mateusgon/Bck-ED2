@@ -4,6 +4,13 @@ import model.Resultado;
 
 public class TabelaHashEncadeamentoSeparado {
 
+    /**
+     * *
+     * A sua explicação de funcionamento estará no relatório. É composta por um
+     * array de Listas Encadeadas. Possui também um tamanho como atributo
+     * O tamanho é o mesmo da quantidade de dados lido informado no Entrada.txt.
+     * Utiliza como função hashing a multiplicação
+     */
     ListaEncadeadaCenario4 gastos[];
     Integer tamanho;
 
@@ -24,11 +31,11 @@ public class TabelaHashEncadeamentoSeparado {
         return (int) indice;
     }
 
-    public void EncadeamentoSeparado(Integer valor[], Resultado resultado) {
+    public void EncadeamentoSeparado(Integer idDeputado[], Resultado resultado) {
         long tempoInicial = System.nanoTime();
-        for (int i = 0; i < valor.length; i++) {
-            Integer indice = funcaoHash(valor[i], resultado);
-            gastos[indice].InserirListaEncadeada(valor[i], resultado);
+        for (int i = 0; i < idDeputado.length; i++) {
+            Integer indice = funcaoHash(idDeputado[i], resultado); // Descobre o valor do indice a ser inserido
+            gastos[indice].InserirListaEncadeada(idDeputado[i], resultado); // Insere na Tabela Hash o id do deputado
         }
         resultado.setTempoGasto(System.nanoTime() - tempoInicial);
         Runtime runtime = Runtime.getRuntime();

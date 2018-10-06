@@ -13,14 +13,14 @@ public class GetInicialAction implements Action { // Responsável por solicitar 
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Integer identificador = Integer.parseInt(request.getParameter("id"));
         if (identificador == 1) { // Redireciona para a seleção do Entrada.txt ou preenchimento manualmente
-            GastoDAO.getInstance();
+            GastoDAO.getInstance(); // Realiza a leitura de todos os dados para o Item 1
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/inicial.jsp");
             dispatcher.forward(request, response);
         } else if (identificador == 2) { // Redireciona para a digitação do número de deputados e partidos
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/inicial2.jsp");
             dispatcher.forward(request, response);
         } else {
-
+            response.sendRedirect("erro.html");
         }
     }
 

@@ -5,7 +5,6 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import persistence.GastoDAO;
 
 public class GetItemAction implements Action { // Responsável por redirecionar para as ações de cada item do trabalho. 
 
@@ -19,7 +18,7 @@ public class GetItemAction implements Action { // Responsável por redirecionar 
             RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/item2.jsp"); // Envia para o item dois, onde a tabela hash é implementada
             dispacher.forward(request, response);
         } else {
-
+            response.sendRedirect("erro.html");
         }
     }
 

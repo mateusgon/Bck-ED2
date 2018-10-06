@@ -1,6 +1,9 @@
 package hash;
 
-public class NoListaEncadeamentoCoalescido {
+public class NoListaEncadeamentoCoalescido { // Responsável por armazenar as informações do Encadeamento Coalescido do Cenário 4
+    
+    // É composto do id do deputado e aponta para a próxima posição após ter colisão de duas chaves, para que dessa maneira, possa ser localizado o valor que também deveria estar nessa posição
+    
     private Integer deputy_id;
     private Integer proximaPosicaoVetor;
 

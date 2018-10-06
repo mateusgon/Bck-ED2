@@ -1,7 +1,9 @@
 package hash;
 
-public class NoListaEncadeadaDeputadoItem2 {
+public class NoListaEncadeadaDeputadoItem2 { // Responsável por armazenar os dados de deputados da Lista Encadeada do Item 2
 
+    // Possui o nome do deputado, o nome do partido político, o id do deputado, o valor e um ponteiro para a próxima informação
+    
     private String nomeDeputado;
     private String partido;
     private Integer deputy_id;

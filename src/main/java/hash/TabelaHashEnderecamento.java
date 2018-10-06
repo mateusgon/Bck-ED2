@@ -4,6 +4,14 @@ import model.Resultado;
 
 public class TabelaHashEnderecamento {
 
+    /**
+     * *
+     * A explicação de funcionamento da sondagem linear, sondagem quadrática e do duplo hash estará no relatório.
+     * É composta por um vetor de identificadores dos usuários nesse caso, chamado de gastos.
+     * Possui também um tamanho já predefinido.
+     * A função de hashing da sondagem linear, sondagem quadrática e duplo hash são a de multiplicação e divisão
+     */
+    
     Integer gastos[] = new Integer[1000000];
     Integer tamanho = 1000000;
 
@@ -13,7 +21,7 @@ public class TabelaHashEnderecamento {
         }
     }
 
-    public int funcaoHash(Integer valor, Resultado resultado) {
+    public int funcaoHash(Integer valor, Resultado resultado) { // Função de multiplicação
         double indice = valor * 0.61803399;
         while (indice >= gastos.length) {
             resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
@@ -22,7 +30,7 @@ public class TabelaHashEnderecamento {
         return (int) indice;
     }
 
-    public double funcaoHash2(Integer valor) {
+    public double funcaoHash2(Integer valor) { // Função de divisão
         return valor % tamanho;
     }
 
@@ -99,7 +107,7 @@ public class TabelaHashEnderecamento {
     }
 
     public Integer SondagemQuadratica(Integer posicao, Integer quantidadeColisao) {
-        Integer indice = (posicao + 2 * quantidadeColisao + 1 * (int) Math.pow(quantidadeColisao, 2))%999983;
+        Integer indice = (posicao + 2 * quantidadeColisao + 1 * (int) Math.pow(quantidadeColisao, 2)) % 999983;
         if (indice >= (gastos.length) || indice <= 0) {
             return -1;
         }
@@ -141,7 +149,7 @@ public class TabelaHashEnderecamento {
     }
 
     public Integer DuploHash(Integer posicao, Integer posicao2, Integer quantidadeColisao) {
-        Integer indice = (posicao + posicao2 * quantidadeColisao)%999983;
+        Integer indice = (posicao + posicao2 * quantidadeColisao) % 999983;
         if (indice >= (gastos.length) || indice <= 0) {
             return -1;
         }

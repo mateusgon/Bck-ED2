@@ -22,7 +22,7 @@ public class ListaEncadeadaCenario4 { // Implementação da Lista Encadeada e a 
             NoListaEncadeadaCenario4 no = new NoListaEncadeadaCenario4(deputy_id, null); // O próximo será null
             primeiro = no;
             atual = no;
-        } else { // Se não estiver vazia a primeira posição, percorre a lista até achar a próxima posição vazia e criar o novo nó para isso.
+        } else { // Se não estiver vazia a primeira posição, percorre a lista até achar a próxima posição vazia na lista encadeada e criar o novo nó para isso. Esse novo nó passa a ser o último da lista encadeada
             resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
             NoListaEncadeadaCenario4 aux = atual;
             NoListaEncadeadaCenario4 no = new NoListaEncadeadaCenario4(deputy_id, null);

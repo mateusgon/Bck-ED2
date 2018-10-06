@@ -1,7 +1,9 @@
 package hash;
 
-public class NoListaEncadeadaCenario4 {
+public class NoListaEncadeadaCenario4 { // Responsável por armazenar as informações da ListaEncadeada do Cenário 4
 
+    // Composta pelo ID do Deputado e um ponteiro para o próximo nó.
+    
     private Integer deputy_id;
     private NoListaEncadeadaCenario4 proximo;
 

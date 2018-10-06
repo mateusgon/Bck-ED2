@@ -4,6 +4,14 @@ import model.Resultado;
 
 public class TabelaHashEncadeamentoCoalescido {
 
+    /***
+     * A sua explicação de funcionamento estará no relatório.
+     * É composta por um array de Nós de Encadeamento Coalescido.
+     * Possui também um tamanho e a última posição vazia como atributos
+     * O tamanho é o mesmo da quantidade de dados lido informado no Entrada.txt
+     * Utiliza como função hashing a multiplicação
+     */
+    
     NoListaEncadeamentoCoalescido gastos[];
     Integer tamanho;
     Integer ultimaPosicaoVazia;
@@ -30,10 +38,10 @@ public class TabelaHashEncadeamentoCoalescido {
         long tempoInicial = System.nanoTime();
         for (int i = 0; i < valor.length; i++) {
             Integer posicao = funcaoHash(valor[i], resultado);
-            if (gastos[posicao].getDeputy_id() == -1) {
+            if (gastos[posicao].getDeputy_id() == -1) { // Verifica se a posição após a função de espalhamento está vazia.
                 resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
                 gastos[posicao].setDeputy_id(valor[i]);
-            } else {
+            } else { // A posição não está vazia, procura a próxima posição em que deve ser inserido.
                 Boolean trocado = false;
                 Integer contador = ultimaPosicaoVazia;
                 while (contador > 0 && !trocado) {

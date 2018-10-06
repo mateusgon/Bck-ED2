@@ -1,6 +1,9 @@
 package hash;
 
-public class NoListaEncadeadaPartidoItem2 {
+public class NoListaEncadeadaPartidoItem2 { // Responsável por armazenar os dados de partidos da Lista Encadeada do Item 2
+    
+    // Composto pelo nome, valor e um ponteiro para o próximo partido 
+    
     private String nome;
     private Integer valor;
     private NoListaEncadeadaPartidoItem2 proximo;

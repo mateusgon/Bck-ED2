@@ -5,6 +5,15 @@ import ordenacao.QuickSort;
 
 public class TabelaHashItem2 {
 
+    /**
+     * *
+     * A sua explicação de funcionamento estará no relatório. É composta por um
+     * vetor de Lsta Encadeada de gastos dos deputados e outro vetor de Lista Encadeada de gastos dos partidos.
+     * Possui também um tamanho. 
+     * Utiliza como função hashing para os deputados a divisão por um fator primo já estabalecido
+     * No caso de partidos, a função de hashing utilizar o tamanho do nome, divide por dois e pega a essa posição. Em seguida, é dividido pelo tamanho.
+     */
+    
     ListaEncadeadaDeputadoItem2 gastosDeputados[];
     ListaEncadeadaPartidoItem2 gastosPartidos[];
     Integer tamanho;
@@ -44,7 +53,7 @@ public class TabelaHashItem2 {
         return gastosPartidos[indice].inserirListaEncadeada(gasto);
     }
 
-    public NoListaEncadeadaDeputadoItem2[] buscarOrdenarDeputados(Integer contadorDeputados) {
+    public NoListaEncadeadaDeputadoItem2[] buscarOrdenarDeputados(Integer contadorDeputados) { // Função responsável por ordenar os gastos dos deputados com o QuickSort mais rápido
         Integer contadorAuxiliar = 0;
         NoListaEncadeadaDeputadoItem2[] gastos = new NoListaEncadeadaDeputadoItem2[contadorDeputados];
         for (int i = 0; i < tamanho; i++) {
@@ -62,7 +71,7 @@ public class TabelaHashItem2 {
         return gastos;
     }
 
-    public NoListaEncadeadaPartidoItem2[] buscarOrdenarPartidos(Integer contadorPartidos) {
+    public NoListaEncadeadaPartidoItem2[] buscarOrdenarPartidos(Integer contadorPartidos) { // Função responsável por ordenar os gastos dos partidos com o QuickSort mais rápido
         Integer contadorAuxiliar = 0;
         NoListaEncadeadaPartidoItem2[] gastos = new NoListaEncadeadaPartidoItem2[contadorPartidos];
         for (int i = 0; i < tamanho; i++) {
