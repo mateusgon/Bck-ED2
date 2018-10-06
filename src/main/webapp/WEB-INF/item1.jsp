@@ -1,7 +1,7 @@
 <%@include file="jspf/cabecalho.jspf" %>
 <div class="container text-center">
-    <h5>DCC012 - Estrutura de Dados 2</h5>
-    <p>Análise do base de dados: deputies_dataset</p>
+    <h1>DCC012 - Estrutura de Dados 2</h1>
+    <h3>Análise do base de dados: deputies_dataset</h3>
     <div class="row" style="margin-top: 1.5cm">
         <div class="col-sm-6" >
             <div class="card">

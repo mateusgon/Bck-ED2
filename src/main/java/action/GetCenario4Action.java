@@ -44,7 +44,7 @@ public class GetCenario4Action implements Action { // Implementa Action e é res
                 }
                 ArquivoDAO.escrever(1, "SondagemLinear", resultados); // Escreve o resultado em um txt.
                 request.setAttribute("resultadoLeitura", resultados);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados2.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultadosHashing.jsp");
                 dispatcher.forward(request, response);
                 break;
             }
@@ -69,7 +69,7 @@ public class GetCenario4Action implements Action { // Implementa Action e é res
                 }
                 ArquivoDAO.escrever(1, "SondagemQuadratica", resultados);
                 request.setAttribute("resultadoLeitura", resultados);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados2.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultadosHashing.jsp");
                 dispatcher.forward(request, response);
                 break;
             }
@@ -94,7 +94,7 @@ public class GetCenario4Action implements Action { // Implementa Action e é res
                 }
                 ArquivoDAO.escrever(1, "DuploHash", resultados);
                 request.setAttribute("resultadoLeitura", resultados);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados2.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultadosHashing.jsp");
                 dispatcher.forward(request, response);
                 break;
             }
@@ -119,7 +119,7 @@ public class GetCenario4Action implements Action { // Implementa Action e é res
                 }
                 ArquivoDAO.escrever(1, "EncadeamentoSeparado", resultados);
                 request.setAttribute("resultadoLeitura", resultados);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados2.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultadosHashing.jsp");
                 dispatcher.forward(request, response);
                 break;
             }
@@ -144,7 +144,7 @@ public class GetCenario4Action implements Action { // Implementa Action e é res
                 }
                 ArquivoDAO.escrever(1, "EncadeamentoCoalescido", resultados);
                 request.setAttribute("resultadoLeitura", resultados);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados2.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultadosHashing.jsp");
                 dispatcher.forward(request, response);
                 break;
             }

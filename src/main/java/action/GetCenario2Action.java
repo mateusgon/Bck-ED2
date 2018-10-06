@@ -40,7 +40,7 @@ public class GetCenario2Action implements Action { // Implementar Action e é re
                 }
                 ArquivoDAO.escrever(0, "QuickSortInteiros", resultados); // Escreve o resultado no arquivo txt
                 request.setAttribute("resultadoLeitura", resultados);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp"); // Faz a requisição para um novo servlet
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultadosOrdenacao.jsp"); // Faz a requisição para um novo servlet
                 dispatcher.forward(request, response);
                 break;
             }
@@ -66,7 +66,7 @@ public class GetCenario2Action implements Action { // Implementar Action e é re
                     }
                     ArquivoDAO.escrever(0, "QuickSortMediana3", resultados);
                     request.setAttribute("resultadoLeitura", resultados);
-                    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultadosOrdenacao.jsp");
                     dispatcher.forward(request, response);
                 } else if (identificador2 == 5) { // Confere se a mediana é 5, caso não seja, há algum erro na hora de solicitar o cenário 2
                     Resultado[] resultados = new Resultado[30];
@@ -87,7 +87,7 @@ public class GetCenario2Action implements Action { // Implementar Action e é re
                     }
                     ArquivoDAO.escrever(0, "QuickSortMediana5", resultados);
                     request.setAttribute("resultadoLeitura", resultados);
-                    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultadosOrdenacao.jsp");
                     dispatcher.forward(request, response);
                 } else { // Chama a página de erro
                     response.sendRedirect("/WEB-INF/erro.jsp");
@@ -116,7 +116,7 @@ public class GetCenario2Action implements Action { // Implementar Action e é re
                     }
                     ArquivoDAO.escrever(0, "QuickSortInsertion10", resultados);
                     request.setAttribute("resultadoLeitura", resultados);
-                    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultadosOrdenacao.jsp");
                     dispatcher.forward(request, response);
                 } else if (identificador2 == 100) { // Verifica se realmente são 100 elementos. Caso não seja o primeiro e nem esse, há algum erro.
                     Resultado[] resultados = new Resultado[30];
@@ -137,7 +137,7 @@ public class GetCenario2Action implements Action { // Implementar Action e é re
                     }
                     ArquivoDAO.escrever(0, "QuickSortInsertion100", resultados);
                     request.setAttribute("resultadoLeitura", resultados);
-                    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultadosOrdenacao.jsp");
                     dispatcher.forward(request, response);
                 } else { // Chama a página de erro
                     response.sendRedirect("/WEB-INF/erro.jsp");

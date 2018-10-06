@@ -41,7 +41,7 @@ public class GetCenario1Action implements Action { // Implementar Action e é re
                 }
                 ArquivoDAO.escrever(0, "QuickSortObjetos", resultados); // Escreve todos os resultados em um arquivo
                 request.setAttribute("resultadoLeitura", resultados);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp"); // Chama o jsp para mostrar o resultado
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultadosOrdenacao.jsp"); // Chama o jsp para mostrar o resultado
                 dispatcher.forward(request, response);
                 break;
             }
@@ -65,7 +65,7 @@ public class GetCenario1Action implements Action { // Implementar Action e é re
                 }
                 ArquivoDAO.escrever(0, "QuickSortInteiros", resultados); // Escreve todos os resultados em um arquivo
                 request.setAttribute("resultadoLeitura", resultados);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp"); // Chama o jsp para mostrar o resultado
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultadosOrdenacao.jsp"); // Chama o jsp para mostrar o resultado
                 dispatcher.forward(request, response);
                 break;
             }

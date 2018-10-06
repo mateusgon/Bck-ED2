@@ -45,7 +45,7 @@ public class GetCenario3Action implements Action { // Implementa Action e é res
                 }
                 ArquivoDAO.escrever(0, "QuickSortInsertion100", resultados); // Escreve todos os resultados em um arquivo
                 request.setAttribute("resultadoLeitura", resultados);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp"); // Chama o jsp para mostrar o resultado
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultadosOrdenacao.jsp"); // Chama o jsp para mostrar o resultado
                 dispatcher.forward(request, response);
                 break;
             }
@@ -70,7 +70,7 @@ public class GetCenario3Action implements Action { // Implementa Action e é res
                 }
                 ArquivoDAO.escrever(0, "MergeSort", resultados);
                 request.setAttribute("resultadoLeitura", resultados);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultadosOrdenacao.jsp");
                 dispatcher.forward(request, response);
                 break;
             }
@@ -95,7 +95,7 @@ public class GetCenario3Action implements Action { // Implementa Action e é res
                 }
                 ArquivoDAO.escrever(0, "InsertionSort", resultados);
                 request.setAttribute("resultadoLeitura", resultados);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultadosOrdenacao.jsp");
                 dispatcher.forward(request, response);
                 break;
             }
@@ -120,7 +120,7 @@ public class GetCenario3Action implements Action { // Implementa Action e é res
                 }
                 ArquivoDAO.escrever(0, "HeapSort", resultados);
                 request.setAttribute("resultadoLeitura", resultados);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultadosOrdenacao.jsp");
                 dispatcher.forward(request, response);
                 break;
             }
@@ -145,7 +145,7 @@ public class GetCenario3Action implements Action { // Implementa Action e é res
                 }
                 ArquivoDAO.escrever(0, "SelectionSort", resultados);
                 request.setAttribute("resultadoLeitura", resultados);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultados.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/resultadosOrdenacao.jsp");
                 dispatcher.forward(request, response);
                 break;
             }
