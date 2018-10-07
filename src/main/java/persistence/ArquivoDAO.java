@@ -9,34 +9,40 @@ import java.util.Scanner;
 import model.Resultado;
 
 /**
- * Classe responsável por realzar a leitura do Entrada.txt e a escrita das métricas coletadas de execução
+ * Classe responsável por realzar a leitura do Entrada.txt e a escrita das
+ * métricas coletadas de execução
  */
-
-public class ArquivoDAO { 
+public class ArquivoDAO {
 
     private static Integer[] leituras;
 
     public static Integer[] getInstance() throws FileNotFoundException { // Realiza a leitura do Entrada.txt
-        Scanner input = new Scanner(new FileReader("C:\\Users\\Mateu\\Documents\\NetBeansProjects\\DCC012---Trabalho01\\entrada.txt"));
-        try {
-            Integer valor;
-            int contador = 0;
-            while (input.hasNext()) {
-                if (contador == 0) {
-                    valor = input.nextInt();
-                    leituras = new Integer[valor + 1];
-                    leituras[contador] = valor;
-                    contador++;
-                } else {
-                    leituras[contador] = input.nextInt();
-                    contador++;
+        if (leituras == null) {
+            Scanner input = new Scanner(new FileReader("C:\\Users\\Mateu\\Documents\\NetBeansProjects\\DCC012---Trabalho01\\entrada.txt"));
+            try {
+                Integer valor;
+                int contador = 0;
+                while (input.hasNext()) {
+                    if (contador == 0) {
+                        valor = input.nextInt();
+                        leituras = new Integer[valor + 1];
+                        leituras[contador] = valor;
+                        contador++;
+                    } else {
+                        leituras[contador] = input.nextInt();
+                        contador++;
+                    }
                 }
+            } catch (Exception ex) {
+
             }
-        } catch (Exception ex) {
-            
+            input.close();
+            return leituras;
         }
-        input.close();
-        return leituras;
+        else
+        {
+            return leituras;
+        }
     }
 
     public static Integer[] getInstance(Integer[] valores) throws FileNotFoundException { // Responsável por realizar a leitura da entrada que o usuário informou e substitui o Entrada.txt
@@ -94,7 +100,7 @@ public class ArquivoDAO {
                 conexao.close();
             }
         } catch (Exception e) {
-            
+
         }
     }
 }
