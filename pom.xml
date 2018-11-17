@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>br.ufjf.dcc012</groupId>
-    <artifactId>DCC012-Trabalho01</artifactId>
+    <artifactId>DCC012-Trabalho02</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>DCC012-Trabalho01</name>
+    <name>DCC012-Trabalho02</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>

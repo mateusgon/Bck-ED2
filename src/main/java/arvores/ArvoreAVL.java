@@ -1,8 +1,44 @@
 package arvores;
 
-public class ArvoreAVL {
+import model.Gasto;
+import model.Resultado;
 
+public class ArvoreAVL implements Cloneable {
+
+    private Resultado resultado;
     private NoArvoreBinariaAVL raiz;
+
+    public void insereGastos(Gasto vetor[], Resultado resultado) {
+        this.resultado = resultado;
+        long tempoInicial = System.nanoTime();
+        for (int i = 0; i < vetor.length; i++) {
+            setRaiz(inserir(vetor[i].getIdGasto(), getRaiz()));
+        }
+        resultado.setTempoGasto(System.nanoTime() - tempoInicial);
+    }
+
+    public void buscaGastos(Gasto vetor[], Resultado resultado) {
+        this.resultado = resultado;
+        long tempoInicial = System.nanoTime();
+        for (int i = 0; i < vetor.length; i++) {
+            buscar(vetor[i].getIdGasto(), getRaiz());
+        }
+        resultado.setTempoGasto((System.nanoTime() - tempoInicial));
+    }
+
+    public void excluirGastos(Gasto vetor[], Resultado resultado) {
+        this.resultado = resultado;
+        long tempoInicial = System.nanoTime();
+        for (int i = 0; i < vetor.length; i++) {
+            setRaiz(excluirNo(vetor[i].getIdGasto(), getRaiz()));
+        }
+        resultado.setTempoGasto((System.nanoTime() - tempoInicial));
+    }
+
+    @Override
+    public ArvoreAVL clone() throws CloneNotSupportedException {
+        return (ArvoreAVL) super.clone(); //To change body of generated methods, choose Tools | Templates.
+    }
 
     public ArvoreAVL() {
         raiz = null;
@@ -25,11 +61,14 @@ public class ArvoreAVL {
 
             if (chave < no.getIdGasto()) {
                 NoArvoreBinariaAVL noAux = inserir(chave, no.getFilhoEsquerda());
+                resultado.setNumTrocas(resultado.getNumTrocas() + 1);
                 no.setFilhoEsquerda(noAux);
             } else if (chave > no.getIdGasto()) {
+                resultado.setNumTrocas(resultado.getNumTrocas() + 1);
                 NoArvoreBinariaAVL noAux = inserir(chave, no.getFilhoDireita());
                 no.setFilhoDireita(noAux);
             }
+            resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
 
             Integer altura1 = alturaDaSubArvoreDoNo(no.getFilhoEsquerda());
             Integer altura2 = alturaDaSubArvoreDoNo(no.getFilhoDireita());
@@ -66,6 +105,8 @@ public class ArvoreAVL {
             return rotacaoEsquerda(no);
         }
 
+        resultado.setNumComparacoes(resultado.getNumComparacoes() + 4);
+
         return no;
     }
 
@@ -84,6 +125,8 @@ public class ArvoreAVL {
         alturaSubArvore2 = alturaDaSubArvoreDoNo(noAux.getFilhoDireita());
         noAux.setAltura((maiorValorEntreDoisNos(alturaSubArvore1, alturaSubArvore2) + 1));
 
+        resultado.setNumTrocas(resultado.getNumTrocas() + 2);
+
         return noAux;
     }
 
@@ -101,6 +144,9 @@ public class ArvoreAVL {
         alturaSubArvore1 = alturaDaSubArvoreDoNo(noAux.getFilhoEsquerda());
         alturaSubArvore2 = alturaDaSubArvoreDoNo(noAux.getFilhoDireita());
         noAux.setAltura((maiorValorEntreDoisNos(alturaSubArvore1, alturaSubArvore2) + 1));
+
+        resultado.setNumTrocas(resultado.getNumTrocas() + 2);
+
         return noAux;
     }
 
@@ -123,6 +169,7 @@ public class ArvoreAVL {
     }
 
     public Integer maiorValorEntreDoisNos(Integer valor1, Integer valor2) {
+        resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
         if (valor1 > valor2) {
             return valor1;
         } else {
@@ -134,6 +181,7 @@ public class ArvoreAVL {
         if (no == null) {
             return null;
         } else {
+            resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
             if (idGasto < no.getIdGasto()) {
                 return buscar(idGasto, no.getFilhoEsquerda());
             } else if (idGasto > no.getIdGasto()) {
@@ -150,35 +198,47 @@ public class ArvoreAVL {
         } else {
             if (no.getIdGasto() > valor) {
                 NoArvoreBinariaAVL noAux = excluirNo(valor, no.getFilhoEsquerda());
+                resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
                 no.setFilhoEsquerda(noAux);
             } else if (no.getIdGasto() < valor) {
                 NoArvoreBinariaAVL noAux = excluirNo(valor, no.getFilhoDireita());
+                resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
                 no.setFilhoDireita(noAux);
             } else {
                 if (no.getFilhoEsquerda() == null || no.getFilhoDireita() == null) {
+                    resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
                     NoArvoreBinariaAVL noAux = null;
                     if (no.getFilhoEsquerda() == null) {
+                        resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
                         noAux = no.getFilhoDireita();
+                        resultado.setNumTrocas(resultado.getNumTrocas() + 1);
                     } else {
+                        resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
                         noAux = no.getFilhoEsquerda();
+                        resultado.setNumTrocas(resultado.getNumTrocas() + 1);
                     }
-
                     if (noAux == null) {
+                        resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
                         noAux = no;
                         no = null;
                     } else {
+                        resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
                         no = noAux;
                     }
                 } else {
+                    resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
                     NoArvoreBinariaAVL noAux = noDeMenorValor(no.getFilhoDireita());
                     no.setIdGasto(noAux.getIdGasto());
                     no.setFilhoDireita(excluirNo(no.getIdGasto(), no.getFilhoDireita()));
+                    resultado.setNumTrocas(resultado.getNumTrocas() + 1);
                 }
             }
+            resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
 
             if (no == null) {
                 return no;
             }
+            resultado.setNumComparacoes(resultado.getNumComparacoes() + 1);
 
             Integer altura1 = alturaDaSubArvoreDoNo(no.getFilhoEsquerda());
             Integer altura2 = alturaDaSubArvoreDoNo(no.getFilhoDireita());
@@ -194,6 +254,7 @@ public class ArvoreAVL {
 
             if (fatorDeBalanceamento > 1 && fatorBalanceamento(no.getFilhoEsquerda()) < 0) {
                 no.setFilhoEsquerda(rotacaoEsquerda(no.getFilhoEsquerda()));
+                resultado.setNumTrocas(resultado.getNumTrocas() + 1);
                 return rotacaoDireita(no);
             }
 
@@ -203,8 +264,11 @@ public class ArvoreAVL {
 
             if (fatorDeBalanceamento < -1 && fatorBalanceamento(no.getFilhoDireita()) > 0) {
                 no.setFilhoDireita(rotacaoDireita(no.getFilhoDireita()));
+                resultado.setNumTrocas(resultado.getNumTrocas() + 1);
                 return rotacaoEsquerda(no);
             }
+
+            resultado.setNumComparacoes(resultado.getNumComparacoes() + 4);
             return no;
         }
     }
@@ -212,12 +276,19 @@ public class ArvoreAVL {
     private NoArvoreBinariaAVL noDeMenorValor(NoArvoreBinariaAVL no) {
         NoArvoreBinariaAVL noAtual = no;
 
-        while (noAtual.getFilhoEsquerda()!= null) {
+        while (noAtual.getFilhoEsquerda() != null) {
             noAtual = noAtual.getFilhoEsquerda();
         }
 
         return noAtual;
     }
 
+    public Resultado getResultado() {
+        return resultado;
+    }
+
+    public void setResultado(Resultado resultado) {
+        this.resultado = resultado;
+    }
 
 }

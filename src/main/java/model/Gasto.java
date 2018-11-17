@@ -6,6 +6,7 @@ package model;
  */
 
 public class Gasto {
+    private Integer idGasto;
     private String bugged_date;
     private String receipt_date;
     private Integer deputy_id;
@@ -88,7 +89,7 @@ public class Gasto {
     public void setReceipt_social_security_number(String receipt_social_security_number) {
         this.receipt_social_security_number = receipt_social_security_number;
     }
-
+    
     public String getReceipt_description() {
         return receipt_description;
     }
@@ -112,7 +113,13 @@ public class Gasto {
     public void setReceipt_value(Integer receipt_value) {
         this.receipt_value = receipt_value;
     }
-    
-    
+
+    public Integer getIdGasto() {
+        return idGasto;
+    }
+
+    public void setIdGasto(Integer idGasto) {
+        this.idGasto = idGasto;
+    }
     
 }

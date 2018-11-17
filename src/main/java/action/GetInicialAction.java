@@ -9,6 +9,7 @@ import persistence.GastoDAO;
 
 public class GetInicialAction implements Action { // Responsável por solicitar ao usuário a seleção do Entrada.txt ou preenchimento manualmente.
 // E também é responsável por redirecionar para a página onde o usuário digita a quantidade de deputados e partidos que deseja ver do Item 2
+
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Integer identificador = Integer.parseInt(request.getParameter("id"));

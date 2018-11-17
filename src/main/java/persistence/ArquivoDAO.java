@@ -38,9 +38,7 @@ public class ArquivoDAO {
             }
             input.close();
             return leituras;
-        }
-        else
-        {
+        } else {
             return leituras;
         }
     }
@@ -55,15 +53,6 @@ public class ArquivoDAO {
             if (codigo == 0) {
                 FileWriter fw = new FileWriter("C:\\Users\\Mateu\\Desktop\\" + nome + ".txt", false);
                 BufferedWriter conexao = new BufferedWriter(fw);
-                conexao.write("Resultado,Tempo gasto,Número de Trocas,Número de comparações");
-                conexao.newLine();
-                for (int i = 0; i < resultado.length; i++) {
-                    conexao.write("Resultado " + i + "," + resultado[i].getTempoGasto() + "," + resultado[i].getNumTrocas() + "," + resultado[i].getNumComparacoes());
-                    conexao.newLine();
-                }
-                conexao.close();
-                fw = new FileWriter("C:\\Users\\Mateu\\Desktop\\Media" + nome + ".txt", false);
-                conexao = new BufferedWriter(fw);
                 conexao.write("Media,Tempo gasto,Número de Trocas,Número de comparações");
                 conexao.newLine();
                 Media m = new Media();
@@ -76,7 +65,7 @@ public class ArquivoDAO {
                 }
                 conexao.close();
             } else {
-                FileWriter fw = new FileWriter("C:\\Users\\Mateu\\Desktop\\" + nome + ".txt", false);
+                /*                FileWriter fw = new FileWriter("C:\\Users\\Mateu\\Desktop\\" + nome + ".txt", false);
                 BufferedWriter conexao = new BufferedWriter(fw);
                 conexao.write("Resultado,Tempo,Memória,Número de comparações");
                 conexao.newLine();
@@ -97,7 +86,7 @@ public class ArquivoDAO {
                     conexao.newLine();
                     contador++;
                 }
-                conexao.close();
+                conexao.close(); */
             }
         } catch (Exception e) {
 

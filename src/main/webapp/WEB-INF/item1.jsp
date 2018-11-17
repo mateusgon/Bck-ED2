@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-body">
                     <a href="cenario1.html?id=0">
-                        <h5 class="card-title">Cenário 1</h5>
+                        <h5 class="card-title"> Árvore AVL </h5>
                         <i class="material-icons"  style="font-size:100px;">folder</i> 
                     </a>
                 </div>
@@ -16,8 +16,8 @@
         <div class="col-sm-6" >
             <div class="card">
                 <div class="card-body">
-                    <a href="cenario2.html?id=0">
-                        <h5 class="card-title">Cenário 2</h5>
+                    <a href="cenario1.html?id=1">
+                        <h5 class="card-title"> Árvore Rubro-Negra </h5>
                         <i class="material-icons"  style="font-size:100px;">folder</i> 
                     </a>
                 </div>
@@ -28,8 +28,8 @@
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-body">
-                    <a href="cenario3.html?id=0" >
-                        <h5 class="card-title">Cenário 3</h5>
+                    <a href="cenario1.html?id=2" >
+                        <h5 class="card-title" > Árvore Splay </h5>
                         <i class="material-icons"  style="font-size:100px;">folder</i> 
                     </a>
                 </div>
@@ -38,8 +38,20 @@
         <div class="col-sm-6" >
             <div class="card">
                 <div class="card-body">
-                    <a href="cenario4.html?id=0">
-                        <h5 class="card-title">Cenário 4</h5>
+                    <a href="cenario1.html?id=3">
+                        <h5 class="card-title"> Árvore B </h5>
+                        <i class="material-icons"  style="font-size:100px;">folder</i> 
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 1.5cm">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <a href="cenario1.html?id=4" >
+                        <h5 class="card-title" > Minha árvore </h5>
                         <i class="material-icons"  style="font-size:100px;">folder</i> 
                     </a>
                 </div>
