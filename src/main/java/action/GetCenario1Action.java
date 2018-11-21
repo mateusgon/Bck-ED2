@@ -108,6 +108,7 @@ public class GetCenario1Action implements Action { // Implementar Action e é re
                 break;
             }
             case 3: { // Realiza o mesmo processo dos dois citados acima, contudo, a execução é uma seguida da outra, pois essa opção seria de ordenar os dois de uma só vez.
+                
                 break;
             }
             case 2: {
